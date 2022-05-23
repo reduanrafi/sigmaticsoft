@@ -1,0 +1,395 @@
+body {
+  overflow-x: hidden;
+}
+/* navbar */
+.bg-leaf {
+  background: #d8f1e5 !important;
+}
+.navBarResponsive {
+  height: 100px !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+/* search box */
+.search-bar {
+  position: relative;
+}
+
+.search-input input {
+  border: none;
+  width: 100%;
+  padding: 18px 30px;
+  border-radius: 30px;
+}
+
+.search-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-54%);
+}
+
+.search-btn button {
+  border: none;
+  padding: 11px 15px;
+  background: #009245;
+  border-radius: 30px;
+}
+
+.search-btn button svg {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.search-input input::placeholder {
+  color: #c3bfbf;
+  font-size: 14px;
+}
+
+/* header right elemet */
+.header-right-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.box-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: white;
+  border: none;
+  margin: 0px 20px;
+  padding: 5px;
+}
+.profile img {
+  width: 60px;
+  height: 60px;
+  margin: 0px 20px;
+  padding: 5px;
+}
+.box-btn i {
+  font-size: 18px;
+  color: #009245;
+}
+.box-btn a svg {
+  font-size: 18px;
+  fill: #009245;
+}
+
+.box-btn a span {
+  position: absolute;
+  right: -10px;
+  top: -13px;
+  background: #009245;
+}
+
+/* left menu */
+.left-menu {
+  height: 600px;
+  position: fixed;
+  z-index: 1;
+  top: 120px;
+  border-radius: 10px 0px 0px 10px;
+}
+.menu-close {
+  display: none;
+}
+.menu-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5px;
+}
+.menu-box img {
+  width: 30px;
+  height: 30px;
+  margin: 20px 0px;
+}
+
+/* top banner container */
+.top-banner-container {
+  background: url("../../images/top-bannar.png");
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-content {
+  padding-top: 160px;
+  padding-left: 100px;
+}
+.card-content h1 {
+  font-size: 50px;
+  font-weight: 700;
+}
+.card-content p {
+  color: #666;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 400;
+}
+.main-search {
+  display: flex;
+}
+.card-content input {
+  padding: 18px 30px;
+  border-radius: 10px;
+  border: none;
+}
+.card-content input::placeholder {
+  color: #c3bfbf;
+  font-size: 14px;
+}
+
+.form-group button {
+  width: 200px;
+  border-radius: 10px;
+}
+.form-group button,
+.form-group button i {
+  font-size: 18px;
+}
+.product-section-title h1 {
+  font-size: 50px;
+}
+
+/* card */
+.card-style {
+  border: 0.3px solid #80808036;
+  box-shadow: 3px 7px 10px 0.5px #80808036;
+}
+
+/* float cart */
+.float-cart {
+  z-index: 2;
+  position: absolute;
+  left: 95%;
+  top: 50%;
+  position: fixed;
+}
+.float-cart button svg {
+  width: 50px;
+  height: 50px;
+  fill: #eeeeee;
+}
+/* float menu */
+.float-menu {
+  display: none;
+}
+
+/* modal */
+.cart-modal {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 10;
+  background-color: #d8f1e5;
+  width: 350px;
+  height: 100vh;
+  position: fixed;
+  display: none;
+}
+
+/* footer */
+footer {
+  height: 70px;
+  background-color: #d8f1e5;
+  color: #009245;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding-top: 10px;
+}
+footer a {
+  font-size: 16px;
+  color: 009245;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #009245;
+}
+
+/*****
+
+ product Details
+
+ *****/
+.product-card {
+  border: 0.1px solid #afadad;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 15px 1px #80808036;
+}
+.product-content {
+  padding: 10px 20px;
+  border-left: 1px solid #afadad;
+}
+.product-content h2 {
+  font-size: 30px;
+  padding: 10px 0px;
+}
+
+.ratings {
+  padding: 10px 0px;
+}
+.ratings a,
+.brand a,
+.share-wishlist a {
+  text-decoration: none;
+  color: cadetblue;
+}
+.share-wishlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.share-wishlist i {
+  font-size: 20px;
+  margin: 0 10px;
+}
+.brand {
+  padding: 10px 10px;
+}
+.price h1 {
+  font-size: 30px;
+}
+.price span {
+  padding-left: 10px;
+}
+.color p {
+  margin: 0px;
+}
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0px;
+}
+.quantity span {
+  padding-right: 5px;
+}
+.quantity input {
+  height: 35px;
+  width: 50px;
+}
+.quantity a,
+.quantity input {
+  margin-right: 5px;
+}
+
+.product-title h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.details-list ul {
+  margin: 10px 0px;
+  column-count: 2;
+}
+.specifications h2 {
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+.specifications p {
+  margin: 0px;
+  line-height: 1;
+}
+
+/* Ratings */
+
+.rating-average .average {
+  font-size: 50px;
+  color: black;
+  font-weight: 500;
+}
+.rating-average .sub-average {
+  font-size: 30px;
+  color: #afadad;
+  font-weight: 500;
+}
+.product-ratings {
+  font-size: 25px;
+  color: gold;
+  font-weight: 500;
+}
+
+.details-ratings {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.details-ratings div,
+.details-ratings span {
+  padding: 0px 5px;
+}
+.details-ratings progress[value] {
+  height: 12px;
+  border-radius: 0px;
+  background: gold;
+}
+
+.star i {
+  font-size: 15px;
+  color: gold;
+}
+
+/* Checkout page */
+.checkout-left {
+  width: 58%;
+  height: min-content;
+  margin-right: 5px;
+}
+.checkout-right {
+  width: 37%;
+  margin-left: 5px;
+}
+
+/* user profile */
+.profile-left {
+  margin-left: auto;
+  margin-top: 120px;
+}
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.card-header img {
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.profile-menu-box {
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.profile-menu-box:hover {
+  background-color: cadetblue;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cart-content .items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
