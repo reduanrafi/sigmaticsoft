@@ -6,5 +6,5 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- custom css -->
-<link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/admin/css/responsive.css')}}">
+<link rel="stylesheet" href="{{asset('assets/website/css/style.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/website/css/responsive.css')}}">
