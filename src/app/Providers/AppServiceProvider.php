@@ -2,6 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
+use App\Observers\OrderObserver;
+use App\Observers\ProductObserver;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +31,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191); // for server issue
+
+        JsonResource::withoutWrapping();
+
+        User::observe(OrderObserver::class);
+
+
+
+        Builder::macro('whereLike', function ($attributes, string $searchTerm) {
+
+            $this->where(function (Builder $query) use ($attributes, $searchTerm) {
+
+                foreach ($attributes as $attribute) {
+
+                    $query->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+                }
+            });
+
+            return $this;
+        });
     }
 }
