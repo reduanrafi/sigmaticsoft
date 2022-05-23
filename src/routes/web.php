@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('layouts/master');
-});
+Route::view('/', 'website.layouts.master');
 
-Route::view('products', 'hero-section/heroSection');
+Route::view('products', 'website.pages.heroSection');
+Route::view('product-details', 'website.pages.productDetails');

@@ -1,4 +1,4 @@
-@extends('layouts/master')
+@extends('website.layouts.master')
 @section('content')
 <div class="row">
     <div class="col-md-12">
@@ -19,5 +19,5 @@
         </div>
     </div>
 </div>
-@include('products/products')
+@include('website/pages/products')
 @endsection

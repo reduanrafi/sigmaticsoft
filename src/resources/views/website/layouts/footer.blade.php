@@ -26,4 +26,4 @@
     </button>
 </div>
 <!-- cart modal -->
-@include('layouts/cartModal')
+@include('website/layouts/cartModal')

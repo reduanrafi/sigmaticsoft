@@ -27,10 +27,10 @@
                         <button class="btn btn-success" style="font-size: 13px;">Stock Out <i
                                 class="fa-solid fa-arrow-right"></i></button>
                         <div>
-                            <button class="btn btn-outline-success rounded">
+                            <a class="btn btn-outline-success rounded">
                                 <i class="fa-regular fa-heart"></i>
-                            </button>
-                            <a href="product-details.html" class="btn btn-outline-success rounded">
+                            </a>
+                            <a href="/productDetails" class="btn btn-outline-success rounded">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                         </div>

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily Grocery</title>
-    @include('layouts/headerStyle')
+    @include('website/layouts/headerStyle')
 </head>
 
 <body>
     <!-- navbar start -->
     <nav class="container-fluid bg-leaf fixed-top">
-        @include('layouts/navBar')
+        @include('website/layouts/navBar')
     </nav>
     <!-- navbar end -->
