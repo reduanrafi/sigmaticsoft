@@ -30,7 +30,7 @@
                             <a class="btn btn-outline-success rounded">
                                 <i class="fa-regular fa-heart"></i>
                             </a>
-                            <a href="/productDetails" class="btn btn-outline-success rounded">
+                            <a href="" class="btn btn-outline-success rounded">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                         </div>
