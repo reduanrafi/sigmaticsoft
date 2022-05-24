@@ -23,8 +23,7 @@
     <nav class="container-fluid bg-leaf fixed-top">
         <div class="row navBarResponsive">
             <div class="col-md-3">
-                <a href="{{route('profile')}}"><img class="img-fluid" src="{{asset('assets/images/logo.png')}}"
-                        alt=""></a>
+                <a href=""><img class="img-fluid" src="{{asset('assets/images/logo.png')}}" alt=""></a>
             </div>
             <div class="col-md-5">
                 <div class="search-bar">

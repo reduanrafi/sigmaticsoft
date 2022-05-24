@@ -19,3 +19,4 @@ Route::view('products', 'website.pages.heroSection');
 Route::view('product-details', 'website.pages.productDetails');
 Route::view('login-register', 'website.pages.login-register');
 Route::view('profile', 'website.pages.profile');
+Route::view('dashboard', 'admin.layouts.master');
