@@ -15,6 +15,8 @@
 <script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('assets/admin/dist/js/adminlte.min.js')}}"></script>
 <script>
     $(function () {
         $("#example1").DataTable({
