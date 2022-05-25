@@ -8,11 +8,9 @@
     rights
     reserved.
 </footer>
-</div>
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 @include('admin.layouts.footerScript')
-</body>
 
-</html>
