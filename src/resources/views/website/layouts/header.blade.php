@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,10 +5,3 @@
     <title>Daily Grocery</title>
     @include('website/layouts/headerStyle')
 </head>
-
-<body>
-    <!-- navbar start -->
-    <nav class="container-fluid bg-leaf fixed-top">
-        @include('website/layouts/navBar')
-    </nav>
-    <!-- navbar end -->

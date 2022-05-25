@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    @include('admin.layouts.header')
+@include('admin.layouts.header')
 
-    <body class="hold-transition sidebar-mini">
-        <div class="wrapper">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
 
-            <!-- Navbar -->
-            @include('admin.layouts.navBar')
-            <!-- /.navbar -->
+        <!-- Navbar -->
+        @include('admin.layouts.navBar')
+        <!-- /.navbar -->
 
-                <!-- Main Sidebar Container -->
-            @include('admin.layouts.sidebar')
+        <!-- Main Sidebar Container -->
+        @include('admin.layouts.sidebar')
 
-            <!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content">
+            <div class="container-fluid">
                 <div class="content-wrapper">
 
-                @yield('content')
-                <!-- /.content -->
+                    @yield('content')
+                    <!-- /.content -->
                 </div>
-                <!-- /.content-wrapper -->
-
-                <!-- Main Footer -->
-                @include('admin.layouts.footer')
-
+            </div>
         </div>
-    </body>
+
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        @include('admin.layouts.footer')
+
+    </div>
+</body>
 
 </html>

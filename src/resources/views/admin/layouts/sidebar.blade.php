@@ -45,9 +45,10 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
+                            <a href="{{route('category.index')}}"
+                                class="nav-link {{request()->is('private-panel/category') ? 'active' :''}}">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                                <p class="ml-3">Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
