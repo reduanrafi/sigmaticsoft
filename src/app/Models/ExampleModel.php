@@ -5,8 +5,7 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class ExampleModel extends Model
-{
+class ExampleModel extends Model {
     /****************************
      * Property area
      *****************************/
@@ -16,9 +15,8 @@ class ExampleModel extends Model
      * Model Relation area
      *****************************/
 
-    public function user()
-    {
-        return $this->belongsTo(  User::class, 'user_id');
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /****************************
@@ -31,12 +29,11 @@ class ExampleModel extends Model
      * @return
      */
 
-    public function GetData($data)
-    {
+    public function GetData($data) {
         return $data;
     }
 
     /****************************
-     * Public Methods area
-     *****************************/
+ * Public Methods area
+ *****************************/
 }
