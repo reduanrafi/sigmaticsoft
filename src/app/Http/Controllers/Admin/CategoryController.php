@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
@@ -14,65 +17,119 @@ class CategoryController extends Controller {
 
     private $retrievedDataList;
     private $singleData;
+    private $filePath = "admin.pages.categories";
+
     public function __construct() {
-        $this->globalObject;
-    }
-    public function index() {
-        return view('admin.pages.' . $this->pluralVariableName . '.index');
+
+        $this->globalObject = new Category();
     }
 
-    public function create() {
-        return view('admin.pages.' . $this->pluralVariableName . '.create');
+    public function Index() {
+
+        $this->retrievedDataList = $this->globalObject->all();
+
+        return view($this->filePath.'.index', [
+
+            $this->pluralVariableName => $this->retrievedDataList,
+
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
+    public function Create() {
+
+        $this->retrievedDataList = $this->globalObject->all();
+
+        return view($this->filePath.'.create', [
+
+            $this->pluralVariableName => $this->retrievedDataList,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-        //
+    public function Edit($id)
+    {
+        $data = $this->globalObject->findOrFail($id);
+
+        return view($this->filePath.'.edit', [
+
+            $this->singularVariableName => $data,
+
+            $this->pluralVariableName   => $this->globalObject->all(),
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        //
+    public function Store(Request $request)
+    {
+
+        $result    = false;
+        
+
+        try
+        {
+            $result = $this->globalObject->create($this->globalObject->GetData($request->all()));
+
+            if ($result)
+            {
+                return redirect()->back()->with(['success' => $this->moduleName . " created successfully"]);
+            }
+
+            return redirect()->back()->with(['error' => "Unable to handle this request !"]);
+
+        }
+        catch (QueryException $ex)
+        {
+            return redirect()->back()->with(['error' => $ex->getMessage()]);
+        }
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
+    public function Update(Request $request,$id)
+    {
+
+        $result = false;
+
+        $oldData = $this->globalObject->findOrFail($id);
+
+        try {
+
+            $result = $oldData->update($this->globalObject->GetData($request->all()));
+
+            if ($result)
+            {
+
+                return redirect()->back()->with(['success' => $this->moduleName . "  updated successfully"]);
+            }
+
+            return redirect()->back()->with(['error' => "Unable to update"]);
+
+        }
+        catch (QueryException $ex)
+        {
+
+            return redirect()->back()->with(['error' => $ex->getMessage()]);
+        }
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        //
+    public function Delete($id)
+    {
+
+        try {
+
+            if ($this->globalObject->destroy($id))
+            {
+
+                return redirect()->back()->with(['success' => $this->moduleName . "  deleted successfully"]);
+
+                
+            }
+        }
+        catch (QueryException $exception)
+        {
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
+
+        }
+
+        return redirect()->back()->with(['error' => "Unable to handle this request !"]);
+
     }
 }

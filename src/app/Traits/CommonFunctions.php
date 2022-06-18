@@ -39,4 +39,9 @@ trait CommonFunctions
         else
             return 0;
     }
+
+    public function GenerateSlug($title)
+    {
+        return str_replace(' ', '-', $title);
+    }
 }

@@ -33,4 +33,18 @@
           "responsive": true,
         });
       });
+
+
 </script>
+@yield('extra-script')
+<script>
+    $("#messageDiv").show().delay(10000).queue(function(n) {
+        $(this).hide(); n();
+    });
+    var loadImage = function(event,outputId,) {
+        var image = document.getElementById(outputId);
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+</script>
+

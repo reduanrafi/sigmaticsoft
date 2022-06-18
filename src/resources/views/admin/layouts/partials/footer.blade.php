@@ -12,5 +12,5 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-@include('admin.layouts.footerScript')
+@include('admin.layouts.partials.footerScript')
 

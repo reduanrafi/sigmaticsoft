@@ -21,18 +21,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($categories as $k=>$category)
                         <tr>
                             <td>01</td>
-                            <td>Food</td>
-                            <td>food</td>
-                            <td>Active</td>
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->slug }}</td>
+                            <td>{{ $category->is_active==1?"Active":"Inactive" }}</td>
                             <td align="center">
-                                <a href="{{}}" class="btn btn-outline-primary btn-sm ml-2"><i
+                                <a href="{{route('category.edit',[$category->id])}}" class="btn btn-outline-primary btn-sm ml-2"><i
                                         class="fa-solid fa-edit"></i></a>
                                 <a href="" class="btn btn-outline-danger btn-sm ml-2"><i
                                         class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
