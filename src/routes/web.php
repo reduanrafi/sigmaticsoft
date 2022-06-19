@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Artisan;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('route:clear');
@@ -40,4 +42,5 @@ Route::group(['prefix' => 'private-panel', 'middleware' => ['auth']], function (
     Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::view('dashboard', 'admin.layouts.master');
     Route::resource('category', CategoryController::class);
+    Route::resource('products', ProductsController::class);
 });

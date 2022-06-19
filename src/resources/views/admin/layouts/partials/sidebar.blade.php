@@ -27,6 +27,13 @@
                         <p class="ml-3">Category</p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{route('products.index')}}"
+                        class="nav-link {{request()->is('private-panel/products*') ? 'active' :''}}">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <p class="ml-3">Products</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

@@ -61,7 +61,7 @@ class CategoryController extends Controller {
     {
 
         $result    = false;
-        
+
 
         try
         {
@@ -120,7 +120,7 @@ class CategoryController extends Controller {
 
                 return redirect()->back()->with(['success' => $this->moduleName . "  deleted successfully"]);
 
-                
+
             }
         }
         catch (QueryException $exception)
