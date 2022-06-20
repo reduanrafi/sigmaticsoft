@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller {
@@ -23,31 +25,31 @@ class ProductsController extends Controller {
         return view($this->filePath . '.index', [$this->pluralVariableName => $this->retrievedDataList]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create() {
-        //
+        $this->retrievedDataList = $this->globalObjects->all();
+        $category                = Category::all();
+        return view($this->filePath . '.create', [$this->pluralVariableName = $this->retrievedDataList], compact('category'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) {
-        //
+        $result = false;
+
+        try {
+
+            $result = $this->globalObjects->create($this->globalObjects->GetData($request->all()));
+
+            if ($result) {
+                return redirect()->back()->with(['success' => $this->moduleName . ' created successfully']);
+            }
+
+            return redirect()->back()->with(['error' => 'Unable to handle this request !']);
+
+        } catch (QueryException $ex) {
+
+            return redirect()->back()->with(['error' => $ex->getMessage()]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id) {
         //
     }
@@ -59,7 +61,15 @@ class ProductsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+
+        $data = $this->globalObjects->findOrFail($id);
+
+        return view($this->filePath . '.edit', [
+
+            $this->singularVariableName = $data,
+
+            $this->pluralVariableName = $this->globalObjects->all(),
+        ]);
     }
 
     /**

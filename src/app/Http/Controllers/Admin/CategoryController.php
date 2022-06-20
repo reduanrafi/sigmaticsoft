@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -28,7 +27,7 @@ class CategoryController extends Controller {
 
         $this->retrievedDataList = $this->globalObject->all();
 
-        return view($this->filePath.'.index', [
+        return view($this->filePath . '.index', [
 
             $this->pluralVariableName => $this->retrievedDataList,
 
@@ -39,17 +38,16 @@ class CategoryController extends Controller {
 
         $this->retrievedDataList = $this->globalObject->all();
 
-        return view($this->filePath.'.create', [
+        return view($this->filePath . '.create', [
 
             $this->pluralVariableName => $this->retrievedDataList,
         ]);
     }
 
-    public function Edit($id)
-    {
+    public function Edit($id) {
         $data = $this->globalObject->findOrFail($id);
 
-        return view($this->filePath.'.edit', [
+        return view($this->filePath . '.edit', [
 
             $this->singularVariableName => $data,
 
@@ -57,33 +55,27 @@ class CategoryController extends Controller {
         ]);
     }
 
-    public function Store(Request $request)
-    {
+    public function Store(Request $request) {
 
-        $result    = false;
-
+        $result = false;
 
         try
         {
             $result = $this->globalObject->create($this->globalObject->GetData($request->all()));
 
-            if ($result)
-            {
+            if ($result) {
                 return redirect()->back()->with(['success' => $this->moduleName . " created successfully"]);
             }
 
             return redirect()->back()->with(['error' => "Unable to handle this request !"]);
 
-        }
-        catch (QueryException $ex)
-        {
+        } catch (QueryException $ex) {
             return redirect()->back()->with(['error' => $ex->getMessage()]);
         }
 
     }
 
-    public function Update(Request $request,$id)
-    {
+    public function Update(Request $request, $id) {
 
         $result = false;
 
@@ -93,38 +85,30 @@ class CategoryController extends Controller {
 
             $result = $oldData->update($this->globalObject->GetData($request->all()));
 
-            if ($result)
-            {
+            if ($result) {
 
                 return redirect()->back()->with(['success' => $this->moduleName . "  updated successfully"]);
             }
 
             return redirect()->back()->with(['error' => "Unable to update"]);
 
-        }
-        catch (QueryException $ex)
-        {
+        } catch (QueryException $ex) {
 
             return redirect()->back()->with(['error' => $ex->getMessage()]);
         }
 
     }
 
-    public function Delete($id)
-    {
+    public function Delete($id) {
 
         try {
 
-            if ($this->globalObject->destroy($id))
-            {
+            if ($this->globalObject->destroy($id)) {
 
                 return redirect()->back()->with(['success' => $this->moduleName . "  deleted successfully"]);
 
-
             }
-        }
-        catch (QueryException $exception)
-        {
+        } catch (QueryException $exception) {
             return redirect()->back()->with(['error' => $exception->getMessage()]);
 
         }
