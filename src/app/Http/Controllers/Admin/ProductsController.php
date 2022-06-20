@@ -66,17 +66,29 @@ class ProductsController extends Controller {
         ], compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
+    public function Update(Request $request, $id) {
 
+        $result = false;
+
+        $oldData = $this->globalObject->findOrFail($id);
+
+        try {
+
+            $result = $oldData->update($this->globalObject->GetData($request->all()));
+
+            if ($result) {
+
+                return redirect()->back()->with(['success' => $this->moduleName . "  updated successfully"]);
+            }
+
+            return redirect()->back()->with(['error' => "Unable to update"]);
+
+        } catch (QueryException $ex) {
+
+            return redirect()->back()->with(['error' => $ex->getMessage()]);
+        }
+
+    }
     /**
      * Remove the specified resource from storage.
      *
