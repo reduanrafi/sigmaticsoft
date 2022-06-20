@@ -9,7 +9,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller {
-    private $globalObjects;
+    private $globalObject;
     private $moduleName           = 'products';
     private $singularVariableName = 'product';
     private $pluralVariableName   = 'products';
@@ -18,15 +18,15 @@ class ProductsController extends Controller {
     private $singleData;
     private $filePath = 'admin.pages.products';
     public function __construct() {
-        $this->globalObjects = new Product();
+        $this->globalObject = new Product();
     }
     public function index() {
-        $this->retrievedDataList = $this->globalObjects->all();
+        $this->retrievedDataList = $this->globalObject->all();
         return view($this->filePath . '.index', [$this->pluralVariableName => $this->retrievedDataList]);
     }
 
     public function create() {
-        $this->retrievedDataList = $this->globalObjects->all();
+        $this->retrievedDataList = $this->globalObject->all();
         $category                = Category::all();
         return view($this->filePath . '.create', [$this->pluralVariableName = $this->retrievedDataList], compact('category'));
     }
@@ -36,7 +36,7 @@ class ProductsController extends Controller {
 
         try {
 
-            $result = $this->globalObjects->create($this->globalObjects->GetData($request->all()));
+            $result = $this->globalObject->create($this->globalObject->GetData($request->all()));
 
             if ($result) {
                 return redirect()->back()->with(['success' => $this->moduleName . ' created successfully']);
@@ -54,22 +54,16 @@ class ProductsController extends Controller {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-
-        $data = $this->globalObjects->findOrFail($id);
+    public function Edit($id) {
+        $data     = $this->globalObject->findOrFail($id);
+        $category = Category::all();
 
         return view($this->filePath . '.edit', [
 
-            $this->singularVariableName = $data,
+            $this->singularVariableName => $data,
 
-            $this->pluralVariableName = $this->globalObjects->all(),
-        ]);
+            $this->pluralVariableName   => $this->globalObject->all(),
+        ], compact('category'));
     }
 
     /**

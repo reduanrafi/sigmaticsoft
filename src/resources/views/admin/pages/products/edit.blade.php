@@ -30,7 +30,7 @@
                         @include('admin.layouts.message.error')
                         @endif
                     </div>
-                    <form action="{{ route("products.update", $product->id) }}" method="post"
+                    <form action="{{ route("products.update",['product'=>$product->id]) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         {!! method_field('PUT') !!}
@@ -40,7 +40,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
                                 </div>
-                                <input type="text" name="name" value="" class="form-control"
+                                <input type="text" name="name" value="{{ $product->name }}" class="form-control"
                                     placeholder="Write Product Name">
                             </div>
                             <!-- /.input group -->
@@ -51,7 +51,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><b><i class="fa-solid fa-dollar-sign"></i></b></span>
                                 </div>
-                                <input type="number" name="price" class="form-control"
+                                <input type="number" name="price" value="{{ $product->price }}" class="form-control"
                                     placeholder="Write Product Price">
                             </div>
                             <!-- /.input group -->
@@ -74,7 +74,8 @@
                                 <select class="form-control" name="category_id" id="">
                                     <option label="Please Select Category"></option>
                                     @forelse ($category as $item)
-                                    <option value="{{ $item->id}}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id}}" @if ($product->category_id == $item->id) selected
+                                        @endif>{{ $item->name }}</option>
                                     @empty
                                     <option> Create Category First</option>
                                     @endforelse
