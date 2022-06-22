@@ -14,6 +14,7 @@
                     <thead>
                         <tr>
                             <th>SL</th>
+                            <th>image</th>
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Status</th>
@@ -24,6 +25,9 @@
                         @foreach ($products as $key =>$product)
                         <tr>
                             <td>{{ ++$key }}</td>
+                            <td>
+                                <img src="{{ asset($product->featured_image) }}" width="50" height="50">
+                            </td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->slug }}</td>
                             <td>{{ $product->is_active=1? 'Active':Inactive }}</td>

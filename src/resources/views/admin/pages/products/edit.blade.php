@@ -62,7 +62,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
                                 </div>
-                                <input type="file" name="image" id="image" class="form-control"
+                                <input type="file" name="featured_image" id="image" class="form-control"
                                     onchange="loadImage(event,'imageOutput')">
                             </div>
                             <p><img id="imageOutput" width="200" /></p>

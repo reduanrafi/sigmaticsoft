@@ -16,10 +16,28 @@ class Product extends Model {
      *****************************/
     protected $fillable = [
         'category_id',
+        'owner_id',
+        'brand_id',
+        'unique_id',
+
         'name',
-        'image',
+        'description',
+
+        'delivery_area',
+
+        'featured_image',
         'price',
-        'slug',
+
+        'sold_amount',
+        'vat_percent',
+        'discount',
+
+        'quantity',
+        'unit',
+        'is_sold_out',
+        'is_featured',
+        'slug'
+
     ];
     public $product = [];
     /****************************
@@ -41,10 +59,11 @@ class Product extends Model {
      */
     public function GetData($data) {
 
-        if (isset($data['image'])) {
-            $data['image'] = $this->UploadImage($data['image'], 'products');
-        }
+        if (isset($data['featured_image'])) {
 
+            $data['featured_image'] = $this->UploadImage($data['featured_image'], 'products',500,500);
+
+        }
         $data['slug'] = $this->GenerateSlug($data['name']);
 
         return $data;
