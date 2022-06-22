@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 @include('admin.layouts.partials.header')
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-
-        <!-- Navbar -->
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
         @include('admin.layouts.partials.navBar')
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-        @include('admin.layouts.partials.sidebar')
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content">
-            <div class="container-fluid">
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            @include('admin.layouts.partials.sidebar')
+            <!-- partial -->
+            <div class="main-panel">
                 <div class="content-wrapper">
-
-                    @yield('content')
-                    <!-- /.content -->
+                    {{-- @yield('content') --}}
                 </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                @include('admin.layouts.partials.footer')
+                <!-- partial -->
             </div>
+            <!-- main-panel ends -->
         </div>
-
-        <!-- /.content-wrapper -->
-
-        <!-- Main Footer -->
-        @include('admin.layouts.partials.footer')
-
+        <!-- page-body-wrapper ends -->
     </div>
+    <!-- container-scroller -->
+
+    @include('admin.layouts.partials.footerScript')
 </body>
 
 </html>

@@ -43,8 +43,12 @@ class Product extends Model {
 
         if (isset($data['image'])) {
             $data['image'] = $this->UploadImage($data['image'], 'products');
-        }
 
+        }
+        if (isset($data['icon'])) {
+            $data['icon'] = $this->UploadImage($data['icon'], 'icons');
+
+        }
         $data['slug'] = $this->GenerateSlug($data['name']);
 
         return $data;
