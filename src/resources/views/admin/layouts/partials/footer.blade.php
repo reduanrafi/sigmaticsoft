@@ -1,16 +1,12 @@
-<footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-        Anything you want
+<footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©
+            <?php echo now()?>. <a href="https://www.bootstrapdash.com/" target="_blank">Sigmatic Soft</a> All rights
+            reserved.</span>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; <?php echo date("Y"); ?> <a href="https://sigmaticsoft.com">Sigmatic Soft</a>.</strong> All
-    rights
-    reserved.
 </footer>
 
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 @include('admin.layouts.partials.footerScript')
-

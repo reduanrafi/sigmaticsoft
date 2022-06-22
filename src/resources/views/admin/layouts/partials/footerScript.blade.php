@@ -1,50 +1,20 @@
-<!-- jQuery -->
-<script src="{{asset('assets/admin/plugins/jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- DataTables  & Plugins -->
-<script src="{{asset('assets/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('assets/admin/dist/js/adminlte.min.js')}}"></script>
-<script>
-    $(function () {
-        $("#example1").DataTable({
-          "responsive": true, "lengthChange": false, "autoWidth": false,
-          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-        });
-      });
+<!-- plugins:js -->
+<script src="{{ asset('assets/admin/vendors/js/vendor.bundle.base.js') }}"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="{{ asset('assets/admin/vendors/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('assets/admin/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('assets/admin/js/dataTables.select.min.js') }}"></script>
 
-
-</script>
+<script src="{{ asset('assets/admin/js/off-canvas.js') }}"></script>
+<script src="{{ asset('assets/admin/js/hoverable-collapse.js') }}"></script>
+<script src="{{ asset('assets/admin/js/template.js') }}"></script>
+<script src="{{ asset('assets/admin/js/settings.js') }}"></script>
+<script src="{{ asset('assets/admin/js/todolist.js') }}"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="{{ asset('assets/admin/js/dashboard.js') }}"></script>
+<script src="{{ asset('assets/admin/js/Chart.roundedBarCharts.js') }}"></script>
+<!-- End custom js for this page-->
 @yield('extra-script')
-<script>
-    $("#messageDiv").show().delay(10000).queue(function(n) {
-        $(this).hide(); n();
-    });
-    var loadImage = function(event,outputId,) {
-        var image = document.getElementById(outputId);
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
-
-</script>
-

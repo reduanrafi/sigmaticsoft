@@ -1,12 +1,13 @@
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- DataTables -->
-<link rel="stylesheet" href="{{asset('assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-<!-- Theme style -->
-<link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/admin/vendors/feather/feather.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/admin/vendors/ti-icons/css/themify-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/admin/vendors/css/vendor.bundle.base.css') }}">
+<!-- endinject -->
+<!-- Plugin css for this page -->
+<link rel="stylesheet" href="{{ asset('assets/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/admin/vendors/ti-icons/css/themify-icons.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/js/select.dataTables.min.css') }}">
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" href="{{ asset('assets/admin/css/vertical-layout-light/style.css') }}">
+<!-- endinject -->
+<link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" />
