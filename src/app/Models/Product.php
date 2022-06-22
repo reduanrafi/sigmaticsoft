@@ -20,6 +20,7 @@ class Product extends Model {
         'image',
         'price',
         'slug',
+        'is_active',
     ];
     public $product = [];
     /****************************

@@ -20,6 +20,7 @@ class Category extends Model {
         'name',
         'image',
         'icon',
+        'is_active',
     ];
     public $category = [];
     /****************************
