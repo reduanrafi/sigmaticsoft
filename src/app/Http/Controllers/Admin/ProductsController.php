@@ -26,6 +26,7 @@ class ProductsController extends Controller {
 
         $this->retrievedDataList = $this->globalObject->all();
         return view($this->filePath . '.index', [$this->pluralVariableName => $this->retrievedDataList]);
+
     }
 
     public function create() {

@@ -14,7 +14,7 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    {{-- @yield('content') --}}
+                    @yield('content')
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->

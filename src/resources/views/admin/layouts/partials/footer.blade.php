@@ -7,6 +7,3 @@
 </footer>
 
 <!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-@include('admin.layouts.partials.footerScript')
