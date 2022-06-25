@@ -17,18 +17,24 @@ class ProductsController extends Controller {
     private $retrievedDataList;
     private $singleData;
     private $filePath = 'admin.pages.products';
+
     public function __construct() {
+
         $this->globalObject = new Product();
     }
     public function index() {
+
         $this->retrievedDataList = $this->globalObject->all();
         return view($this->filePath . '.index', [$this->pluralVariableName => $this->retrievedDataList]);
 
     }
 
     public function create() {
+
         $this->retrievedDataList = $this->globalObject->all();
+
         $category                = Category::all();
+
         return view($this->filePath . '.create', [$this->pluralVariableName = $this->retrievedDataList], compact('category'));
     }
 

@@ -27,7 +27,7 @@ Route::get('/clear-cache', function () {
     return redirect()->back();
 });
 
-Route::view('/', 'website.layouts.master');
+Route::get('/', [App\Http\Controllers\Website\IndexController::class,'index'])->name('website.index');
 
 Route::view('products', 'website.pages.heroSection');
 Route::view('product-details', 'website.pages.productDetails');

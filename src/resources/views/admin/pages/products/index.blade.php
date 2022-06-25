@@ -36,6 +36,8 @@
                             @forelse ($products as $key =>$product)
                             <tr>
                                 <td>{{ ++$key }}</td>
+                                <img src="{{ asset($product->featured_image) }}" width="50" height="50">
+                                <td>{{ $product->name }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->slug }}</td>
                                 <td>{{ $product->is_active==1? 'Active':'Inactive' }}</td>

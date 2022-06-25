@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="row">
-    <div class="col-md-12 grid-margin stretch-card">
+    <div class="col-md-6 grid-margin stretch-card">
         <div class="card rounded">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
@@ -78,10 +78,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <button class="btn btn-outline-success btn-block rounded mt-2"> <i class="fa-solid fa-save"></i>
-                            Submit</button>
-                    </div>
+
+                        <button type="submit" class="btn btn-success mr-2">Update</button>
+
+
                 </form>
             </div>
         </div>
