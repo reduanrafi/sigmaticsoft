@@ -44,6 +44,11 @@ body {
   padding: 13px 30px;
   border-radius: 30px;
 }
+.search-input input:focus {
+  border: none;
+  outline: none;
+  appearance: none;
+}
 
 .search-btn {
   position: absolute;
