@@ -8,7 +8,7 @@
                     <h4 class="card-title">Category Create</h4>
                     <div>
                         <a href="{{ route('category.index') }}"
-                            class="btn btn-outline-info btn-sm rounded d-flex align-items-center"><i
+                            class="btn btn-outline-success btn-sm rounded d-flex align-items-center"><i
                                 class="mdi mdi-eye mr-1"></i> View All</a>
                     </div>
                 </div>
@@ -59,10 +59,8 @@
                         <!-- /.input group -->
                         <p><img id="iconOutput" width="100" /></p>
                     </div>
-                    <div class="text-center">
-                        <button class="btn btn-outline-success btn-block rounded mt-2"> <i class="fa-solid fa-save"></i>
-                            Submit</button>
-                    </div>
+                    <button type="submit" class="btn btn-success mr-2">Save</button>
+
                 </form>
             </div>
         </div>

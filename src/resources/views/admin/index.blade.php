@@ -14,34 +14,40 @@
 
 <section class="content">
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3> 1</h3>
-
-                    <p>Orders</p>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-tale">
+                <div class="card-body">
+                    <p class="mb-4">Categories</p>
+                    <p class="fs-30 mb-2">4006</p>
+                    <p>10.00% (30 days)</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h3> 1</h3>
-
-                    <p>Products</p>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-dark-blue">
+                <div class="card-body">
+                    <p class="mb-4">Products</p>
+                    <p class="fs-30 mb-2">61344</p>
+                    <p>22.00% (30 days)</p>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-tale">
+                <div class="card-body">
+                    <p class="mb-4">Orders</p>
+                    <p class="fs-30 mb-2">4006</p>
+                    <p>10.00% (30 days)</p>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 stretch-card transparent">
+            <div class="card card-dark-blue">
+                <div class="card-body">
+                    <p class="mb-4">Users</p>
+                    <p class="fs-30 mb-2">61344</p>
+                    <p>22.00% (30 days)</p>
+                </div>
             </div>
         </div>
     </div>
