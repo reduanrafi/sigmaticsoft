@@ -55,6 +55,7 @@ body {
   top: 53%;
   right: 10px;
   transform: translateY(-54%);
+  margin-right: 5px;
 }
 
 .search-btn button {
