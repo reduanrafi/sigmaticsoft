@@ -47,12 +47,19 @@
                                 <td>
                                     {{ $category->is_active==1?'Active':'Inactive' }}
                                 </td>
-                                <td align="center">
-                                    <a href="{{ route('category.edit', $category->id) }}"
-                                        class="btn btn-sm btn-outline-primary rounded-0 p-1"><i
-                                            class="mdi mdi-table-edit"></i></a>
-                                    <a href="" class="btn btn-sm btn-outline-danger rounded-0 p-1 ml-2"><i
-                                            class="mdi mdi-delete"></i></a>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ route('category.edit', $category->id) }}"
+                                            class="btn btn-sm btn-outline-primary rounded-0 p-1"><i
+                                                class="mdi mdi-table-edit"></i></a>
+                                        <form action="{{ route('category.destroy', $category->id ) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="btn btn-sm btn-outline-danger rounded-0 p-1 ml-2"><i
+                                                    class="mdi mdi-delete"></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @empty

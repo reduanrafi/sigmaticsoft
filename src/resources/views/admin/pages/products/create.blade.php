@@ -8,7 +8,7 @@
                     <h4 class="card-title">Product Create</h4>
                     <div>
                         <a href="{{ route('products.index') }}"
-                            class="btn btn-outline-info btn-sm rounded d-flex align-items-center"><i
+                            class="btn btn-outline-success btn-sm rounded d-flex align-items-center"><i
                                 class="mdi mdi-eye mr-1"></i> View All</a>
                     </div>
                 </div>
@@ -24,7 +24,8 @@
                     <div class="form-group">
                         <label>Name</label>
                         <div class="input-group">
-                            <input type="text" name="name" class="form-control" placeholder="Write Product Name">
+                            <input type="text" name="name" class="form-control" placeholder="Write Product Name"
+                                required>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -37,9 +38,9 @@
                         <!-- /.input group -->
                     </div>
                     <div class="form-group">
-                        <label>product image</label>
+                        <label>Featured Image</label>
                         <div class="input-group">
-                            <input type="file" name="image" id="image" class="form-control"
+                            <input type="file" name="featured_image" id="featured_image" class="form-control"
                                 onchange="loadImage(event,'imageOutput')">
                         </div>
                         <p><img id="imageOutput" width="200" /></p>
@@ -74,8 +75,9 @@
                             <div class="form-group">
                                 <label for="is_sold_out">Out Of Stock</label>
                                 <select class="form-control" name="is_sold_out" id="is_sold_out">
-                                    <option value="0">Yes</option>
-                                    <option value="1">No</option>
+                                    <option disabled label="Please Select" selected></option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                                 <!-- /.input group -->
                             </div>
@@ -83,12 +85,10 @@
                                 <label>Select Category</label>
                                 <div class="input-group">
                                     <select class="form-control" name="category_id" id="">
-                                        <option label="Please Select Category"></option>
-                                        @forelse ($category as $item)
-                                        <option value="{{ $item->id}}">{{ $item->name }}</option>
-                                        @empty
-                                        <option> Create Category First</option>
-                                        @endforelse
+                                        <option disabled label="Please Select" selected></option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id}}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -121,25 +121,31 @@
                             <div class="form-group">
                                 <label for="is_featured">Featured</label>
                                 <select class="form-control" name="is_featured" id="is_featured">
-                                    <option value="0">Yes</option>
-                                    <option value="1">No</option>
+                                    <option disabled label="Please Select" selected></option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                                 <!-- /.input group -->
                             </div>
                             <div class="form-group">
                                 <label for="is_active">Status</label>
                                 <select class="form-control" name="is_active" id="is_active">
+                                    <option disabled label="Please Select" selected></option>
                                     <option value="1">Active</option>
-                                    <option value="0">No</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                                 <!-- /.input group -->
                             </div>
                         </div>
-                        <div class="text-center">
-                            <button class="btn btn-outline-success btn-block rounded mt-2"> <i
-                                    class="fa-solid fa-save"></i>
-                                Submit</button>
+                        <div class="col-12">
+                            <div class="text-center">
+                                <button class="btn btn-outline-success rounded mt-2 w-50"> <i
+                                        class="fa-solid fa-save"></i>
+                                    Submit
+                                </button>
+                            </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

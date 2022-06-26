@@ -26,16 +26,16 @@ class Product extends Model {
         'delivery_area',
 
         'featured_image',
+        'price',
         'sold_amount',
         'vat_percent',
         'discount',
-
 
         'quantity',
         'unit',
         'is_sold_out',
         'is_featured',
-        'slug'
+        'slug',
 
     ];
     protected $appends = [
@@ -46,55 +46,44 @@ class Product extends Model {
     ];
     public $product = [];
 
-
     /****************************
      * Model Relation area
      *****************************/
 
-    public function category()
-    {
+    public function category() {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function brand()
-    {
+    public function brand() {
         return $this->belongsTo(Brand::class, 'brand_id');
     }
 
-    public function owner()
-    {
+    public function owner() {
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-    public function productDetail()
-    {
+    public function productDetail() {
         return $this->hasOne(ProductDetail::Class);
     }
 
-    public function productImages()
-    {
+    public function productImages() {
         return $this->hasMany(ProductImage::Class);
     }
 
-    public function productReviews()
-    {
+    public function productReviews() {
         return $this->hasMany(ProductReview::Class);
     }
 
-    public function topType()
-    {
+    public function topType() {
         return $this->belongsToMany('App\Models\TopType');
     }
 
-    public function wishList()
-    {
+    public function wishList() {
         return $this->belongsTo(WishList::class);
     }
-    public function bundleItems()
-    {
+    public function bundleItems() {
         return $this->belongsToMany('App\Models\Bundle');
     }
-
 
     /****************************
      * Public Methods area
@@ -107,8 +96,8 @@ class Product extends Model {
      */
     public function GetData($data) {
 
-        if (isset($data['image'])) {
-            $data['image'] = $this->UploadImage($data['image'], 'products');
+        if (isset($data['featured_image'])) {
+            $data['featured_image'] = $this->UploadImage($data['featured_image'], 'products');
         }
 
         $data['slug'] = $this->GenerateSlug($data['name']);

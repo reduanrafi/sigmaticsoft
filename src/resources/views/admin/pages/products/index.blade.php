@@ -18,11 +18,20 @@
                                 <th>
                                     SL
                                 </th>
+                                <th class="text-center">
+                                    Image
+                                </th>
                                 <th>
                                     Name
                                 </th>
                                 <th>
                                     Slug
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Discount
                                 </th>
                                 <th>
                                     Status
@@ -36,22 +45,33 @@
                             @forelse ($products as $key =>$product)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <img src="{{ asset($product->featured_image) }}" width="50" height="50">
-                                <td>{{ $product->name }}</td>
+                                <td align="center">
+                                    <img src="{{ asset($product->featured_image) }}" width="50" height="50">
+                                </td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->slug }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->discount }}</td>
                                 <td>{{ $product->is_active==1? 'Active':'Inactive' }}</td>
-                                <td align="center">
-                                    <a href="{{ route('products.edit', $product->id) }}"
-                                        class="btn btn-sm btn-outline-primary rounded-0 p-1"><i
-                                            class="mdi mdi-table-edit"></i></a>
-                                    <a href="" class="btn btn-sm btn-outline-danger rounded-0 p-1 ml-2"><i
-                                            class="mdi mdi-delete"></i></a>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ route('products.edit', $product->id) }}"
+                                            class="btn btn-sm btn-outline-primary rounded-0 p-1"><i
+                                                class="mdi mdi-table-edit"></i></a>
+                                        <form action="{{ route('products.destroy', $product->id ) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="btn btn-sm btn-outline-danger rounded-0 p-1 ml-2"><i
+                                                    class="mdi mdi-delete"></i></button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
-
                             @empty
-
+                            <tr>
+                                <td colspan="8" class="text-center text-danger">Please Add Products First</td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>
