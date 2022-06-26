@@ -2,7 +2,14 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-
+        <div class="hero_section">
+            <h1>Stay Home & Delivered <br> Your Daily Need's</h1>
+            <p>Start you'r daily sopping with Picksy theme</p>
+            <div class="hero_search">
+                <input type="text" placeholder="Here you search your product.."><button><i
+                        class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row my-5 mx-3 product-section-title">

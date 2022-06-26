@@ -22,16 +22,17 @@
                 <form action="{{ route("products.store") }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label>Product Name</label>
+                        <label>Name</label>
                         <div class="input-group">
                             <input type="text" name="name" class="form-control" placeholder="Write Product Name">
                         </div>
                         <!-- /.input group -->
                     </div>
                     <div class="form-group">
-                        <label>Product Price</label>
+                        <label for="description">Description</label>
                         <div class="input-group">
-                            <input type="number" name="price" class="form-control" placeholder="Write Product Price">
+                            <textarea type="text" name="description" class="form-control"
+                                placeholder="Write Product Description" rows="5" cols="20"></textarea>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -44,23 +45,101 @@
                         <p><img id="imageOutput" width="200" /></p>
                         <!-- /.input group -->
                     </div>
-                    <div class="form-group">
-                        <label>Select Category</label>
-                        <div class="input-group">
-                            <select class="form-control" name="category_id" id="">
-                                <option label="Please Select Category"></option>
-                                @forelse ($category as $item)
-                                <option value="{{ $item->id}}">{{ $item->name }}</option>
-                                @empty
-                                <option> Create Category First</option>
-                                @endforelse
-                            </select>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Price</label>
+                                <div class="input-group">
+                                    <input type="number" name="price" class="form-control"
+                                        placeholder="Write Product Price">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="unit">Unit</label>
+                                <div class="input-group">
+                                    <input type="text" name="unit" class="form-control"
+                                        placeholder="Write Product Unit">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="vat_percent">Vat Percent</label>
+                                <div class="input-group">
+                                    <input type="text" name="vat_percent" class="form-control"
+                                        placeholder="Write Product Total Vat Percent">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_sold_out">Out Of Stock</label>
+                                <select class="form-control" name="is_sold_out" id="is_sold_out">
+                                    <option value="0">Yes</option>
+                                    <option value="1">No</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="category_id" id="">
+                                        <option label="Please Select Category"></option>
+                                        @forelse ($category as $item)
+                                        <option value="{{ $item->id}}">{{ $item->name }}</option>
+                                        @empty
+                                        <option> Create Category First</option>
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-outline-success btn-block rounded mt-2"> <i class="fa-solid fa-save"></i>
-                            Submit</button>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <div class="input-group">
+                                    <input type="number" name="quantity" class="form-control"
+                                        placeholder="Write Product Quantity">
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                            <div class="form-group">
+                                <label for="sold_amount">Total Sold</label>
+                                <div class="input-group">
+                                    <input type="text" name="sold_amount" class="form-control"
+                                        placeholder="Write Product Total Sold Amount">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="discount">Discount</label>
+                                <div class="input-group">
+                                    <input type="text" name="discount" class="form-control"
+                                        placeholder="Write Product Total Vat Percent">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_featured">Featured</label>
+                                <select class="form-control" name="is_featured" id="is_featured">
+                                    <option value="0">Yes</option>
+                                    <option value="1">No</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_active">Status</label>
+                                <select class="form-control" name="is_active" id="is_active">
+                                    <option value="1">Active</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-success btn-block rounded mt-2"> <i
+                                    class="fa-solid fa-save"></i>
+                                Submit</button>
+                        </div>
                 </form>
             </div>
         </div>
