@@ -47,10 +47,9 @@
                     <div class="form-group">
                         <label>Featured Image</label>
                         <div class="input-group">
-                            <input type="file" name="featured_image" id="featured_image" class="form-control"
-                                onchange="loadImage(event,'imageOutput')">
+                            <input type="file" name="featured_image" id="featured_image" class="form-control">
                         </div>
-                        <p><img id="imageOutput" width="200" /></p>
+                        <p class="mt-2"><img class="rounded" id="imageOutput" width="200" /></p>
                         <!-- /.input group -->
                     </div>
                     <div class="row">
@@ -158,4 +157,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    const featureImage = document.getElementById('featured_image');
+    featureImage.onchange = evt => {
+        const [file] = featureImage.files
+        if (file) {
+        imageOutput.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 @endsection

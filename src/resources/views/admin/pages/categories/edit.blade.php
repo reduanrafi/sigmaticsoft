@@ -53,20 +53,19 @@
                         <label>Category image</label>
                         <div class="input-group">
                             <input type="file" name="image" id="image" class="form-control"
-                                placeholder="Write Category Name" onchange="loadImage(event,'imageOutput')">
+                                placeholder="Write Category Name">
                         </div>
-                        <p><img id="imageOutput" width="200" /></p>
+                        <p class="mt-2"><img class="rounded" id="imageOutput" width="200" /></p>
                         <!-- /.input group -->
                     </div>
-
                     <div class="form-group">
                         <label>Category Icon</label>
                         <div class="input-group">
-                            <input type="file" name="image" id="icon" onchange="loadImage(event,'iconOutput')"
-                                class="form-control" placeholder="Write Category Name">
+                            <input type="file" name="image" id="icon" class="form-control"
+                                placeholder="Write Category Name">
                         </div>
                         <!-- /.input group -->
-                        <p><img id="iconOutput" width="100" /></p>
+                        <p class="mt-2"><img class="rounded" id="iconOutput" width="100" /></p>
                     </div>
                     <div class="form-group">
                         <label>Select Status</label>
@@ -79,7 +78,7 @@
                         </div>
                     </div>
 
-                        <button type="submit" class="btn btn-success mr-2">Update</button>
+                    <button type="submit" class="btn btn-success mr-2">Update</button>
 
 
                 </form>
@@ -87,4 +86,24 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    const imageUpload = document.getElementById('image');
+    imageUpload.onchange = evt => {
+        const [file] = imageUpload.files
+        if (file) {
+            const imageOutput = document.getElementById('imageOutput');
+            imageOutput.src = URL.createObjectURL(file)
+        }
+    }
+    const iconUpload = document.getElementById('icon');
+    iconUpload.onchange = evt => {
+        const [file] = iconUpload.files
+        if (file) {
+            const iconOutput = document.getElementById('iconOutput');
+            iconOutput.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 @endsection
