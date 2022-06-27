@@ -31,6 +31,9 @@
                                     Price
                                 </th>
                                 <th>
+                                    Stock
+                                </th>
+                                <th>
                                     Discount
                                 </th>
                                 <th>
@@ -51,6 +54,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->slug }}</td>
                                 <td>{{ $product->price }}</td>
+                                <td>{{ $product->quantity }}</td>
                                 <td>{{ $product->discount }}</td>
                                 <td>{{ $product->is_active==1? 'Active':'Inactive' }}</td>
                                 <td>

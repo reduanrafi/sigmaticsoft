@@ -6,7 +6,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/product-1.png" class="d-block w-100" alt="...">
+                    <img src="" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="images/product-2.png" class="d-block w-100" alt="...">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-md-7 product-content">
-        <h2>HBQ I7S TWS Double Dual Wireless</h2>
+        <h2></h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="ratings">

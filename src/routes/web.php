@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Website\IndexController;
+use App\Http\Controllers\Website\ProductDetailsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +29,10 @@ Route::get('/clear-cache', function () {
     return redirect()->back();
 });
 
-Route::get('/', [App\Http\Controllers\Website\IndexController::class,'index'])->name('website.index');
+Route::get('/', [IndexController::class, 'index'])->name('website.index');
 
-Route::view('products', 'website.pages.heroSection');
-Route::view('product-details', 'website.pages.productDetails');
+// Route::get('products', 'website.pages.heroSection');
+Route::get('product-details/{slug}', [ProductDetailsController::class, 'index'])->name('website.details');
 Route::view('login-register', 'website.pages.login-register');
 Route::view('profile', 'website.pages.profile');
 

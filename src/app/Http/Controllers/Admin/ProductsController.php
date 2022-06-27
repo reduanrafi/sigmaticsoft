@@ -97,7 +97,7 @@ class ProductsController extends Controller {
 
         } catch (QueryException $ex) {
 
-            return redirect()->back()->with(['error' => $ex->getMessage()]);
+            return redirect()->back()->withInput(['error' => $ex->getMessage()]);
         }
 
     }
