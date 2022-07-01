@@ -99,7 +99,7 @@ class CategoryController extends Controller {
 
     }
 
-    public function Delete($id) {
+    public function destroy($id) {
 
         try {
 

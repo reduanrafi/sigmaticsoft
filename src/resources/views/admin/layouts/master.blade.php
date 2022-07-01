@@ -28,6 +28,7 @@
     <!-- container-scroller -->
 
     @include('admin.layouts.partials.footerScript')
+    @yield('script')
 </body>
 
 </html>

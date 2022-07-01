@@ -22,20 +22,18 @@ return new class extends Migration {
             $table->string('slug')->nullable();
             $table->string('name');
 
-            $table->text('description')->nullable();
+            $table->text('description_en')->nullable();
 
             $table->text('delivery_area')->nullable();
 
             $table->string('featured_image')->nullable();
-
-
 
             $table->string('price')->nullable();
 
             $table->integer('quantity')->nullable();
             $table->string('unit')->nullable();
             //text_percent changed to sold_amount.
-            $table->integer( 'sold_amount')->nullable();
+            $table->integer('sold_amount')->nullable();
             $table->integer('vat_percent')->nullable();
             $table->integer('discount')->nullable();
             $table->boolean('is_sold_out')->default(0);
@@ -46,7 +44,6 @@ return new class extends Migration {
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             //$table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-
 
             $table->softDeletes();
             $table->timestamps();

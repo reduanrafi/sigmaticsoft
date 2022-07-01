@@ -24,66 +24,148 @@
                     @include('admin.layouts.message.error')
                     @endif
                 </div>
-                <form action="{{ route("products.update",['product'=>$product->id]) }}" method="post"
-                    enctype="multipart/form-data">
+                <form action="{{ route("products.update", $product->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    {!! method_field('PUT') !!}
+                    @method('PUT')
                     <div class="form-group">
-                        <label>Product Name</label>
+                        <label>Name</label>
                         <div class="input-group">
-                            <input type="text" name="name" value="{{ $product->name }}" class="form-control"
-                                placeholder="Write Product Name">
+                            <input type="text" name="name" class="form-control" placeholder="Write Product Name"
+                                required value="{{ $product->name }}">
                         </div>
                         <!-- /.input group -->
                     </div>
                     <div class="form-group">
-                        <label>Product Price</label>
+                        <label for="description_en">Description</label>
                         <div class="input-group">
-                            <input type="number" name="price" value="{{ $product->price }}" class="form-control"
-                                placeholder="Write Product Price">
+                            <textarea type="text" name="description_en" class="form-control"
+                                placeholder="Write Product Description" rows="5"
+                                cols="20">{{ $product->description_en }}</textarea>
                         </div>
                         <!-- /.input group -->
                     </div>
                     <div class="form-group">
-                        <label>product image</label>
+                        <label>Featured Image</label>
                         <div class="input-group">
-                            <input type="file" name="image" id="image" class="form-control"
-                                onchange="loadImage(event,'imageOutput')">
+                            <input type="file" name="featured_image" id="featured_image" class="form-control">
                         </div>
-                        <p><img id="imageOutput" width="200" /></p>
+                        <p class="mt-2"><img class="rounded" id="imageOutput" width="200" /></p>
                         <!-- /.input group -->
                     </div>
-                    <div class="form-group">
-                        <label>Select Category</label>
-                        <div class="input-group">
-                            <select class="form-control" name="category_id" id="">
-                                <option label="Please Select Category"></option>
-                                @forelse ($category as $item)
-                                <option value="{{ $item->id}}" @if ($product->category_id == $item->id) selected
-                                    @endif>{{ $item->name }}</option>
-                                @empty
-                                <option> Create Category First</option>
-                                @endforelse
-                            </select>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Price</label>
+                                <div class="input-group">
+                                    <input type="number" name="price" class="form-control"
+                                        placeholder="Write Product Price" value="{{ $product->price }}">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="unit">Unit</label>
+                                <div class="input-group">
+                                    <input type="text" name="unit" class="form-control" placeholder="Write Product Unit"
+                                        value="{{ $product->unit }}">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="vat_percent">Vat Percent</label>
+                                <div class="input-group">
+                                    <input type="text" name="vat_percent" class="form-control"
+                                        placeholder="Write Product Total Vat Percent"
+                                        value="{{ $product->vat_percent }}">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_sold_out">Out Of Stock</label>
+                                <select class="form-control" name="is_sold_out" id="is_sold_out">
+                                    <option value="1" @if ($product->is_sold_out == 1) selected @endif>Yes</option>
+                                    <option value="0" @if ($product->is_sold_out == 0) selected @endif>No</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="category_id" id="">
+                                        <option disabled label="Please Select" selected></option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id}}" @if ($product->category_id == $category->id)
+                                            selected @endif>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Status</label>
-                        <div class="input-group">
-                            <select name="is_active" class="form-control">
-                                <option></option>
-                                <option value="1" @if($product->is_active == 1) selected @endif>Active</option>
-                                <option value="0" @if($product->is_active == 0) selected @endif>Inactive</option>
-                            </select>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <div class="input-group">
+                                    <input type="number" name="quantity" class="form-control"
+                                        placeholder="Write Product Quantity" {{ $product->quantity }}>
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                            <div class="form-group">
+                                <label for="sold_amount">Total Sold</label>
+                                <div class="input-group">
+                                    <input type="text" name="sold_amount" class="form-control"
+                                        placeholder="Write Product Total Sold Amount"
+                                        value="{{ $product->sold_amount }}">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="discount">Discount</label>
+                                <div class="input-group">
+                                    <input type="text" name="discount" class="form-control"
+                                        placeholder="Write Product Total Vat Percent" value="{{ $product->discount }}">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_featured">Featured</label>
+                                <select class="form-control" name="is_featured" id="is_featured">
+                                    <option value="1" @if($product->is_featured == 1 ) selected @endif>Yes</option>
+                                    <option value="0" @if($product->is_featured == 0 ) selected @endif>No</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label for="is_active">Status</label>
+                                <select class="form-control" name="is_active" id="is_active">
+                                    <option value="1" @if($product->is_active == 1 ) selected @endif>Active</option>
+                                    <option value="0" @if($product->is_active == 0 ) selected @endif>Inactive</option>
+                                </select>
+                                <!-- /.input group -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn btn-outline-success btn-block rounded mt-2"> <i class="fa-solid fa-save"></i>
-                            Submit</button>
+                        <div class="col-12">
+                            <div class="text-center">
+                                <button class="btn btn-outline-success rounded mt-2 w-50"> <i
+                                        class="fa-solid fa-save"></i>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    const featureImage = document.getElementById('featured_image');
+    featureImage.onchange = evt => {
+        const [file] = featureImage.files
+        if (file) {
+        imageOutput.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 @endsection

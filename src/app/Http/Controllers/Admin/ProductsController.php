@@ -33,9 +33,12 @@ class ProductsController extends Controller {
 
         $this->retrievedDataList = $this->globalObject->all();
 
-        $category                = Category::all();
+        $categories = Category::all();
 
-        return view($this->filePath . '.create', [$this->pluralVariableName = $this->retrievedDataList], compact('category'));
+        return view($this->filePath . '.create', [
+            $this->pluralVariableName = $this->retrievedDataList,
+            'categories' => $categories,
+        ]);
     }
 
     public function store(Request $request) {
@@ -62,15 +65,17 @@ class ProductsController extends Controller {
     }
 
     public function Edit($id) {
-        $data     = $this->globalObject->findOrFail($id);
-        $category = Category::all();
+        $data       = $this->globalObject->findOrFail($id);
+        $categories = Category::all();
 
         return view($this->filePath . '.edit', [
 
             $this->singularVariableName => $data,
 
             $this->pluralVariableName   => $this->globalObject->all(),
-        ], compact('category'));
+
+            'categories'                => $categories,
+        ]);
     }
 
     public function Update(Request $request, $id) {
@@ -92,7 +97,7 @@ class ProductsController extends Controller {
 
         } catch (QueryException $ex) {
 
-            return redirect()->back()->with(['error' => $ex->getMessage()]);
+            return redirect()->back()->withInput(['error' => $ex->getMessage()]);
         }
 
     }
@@ -103,6 +108,15 @@ class ProductsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        try {
+            if ($this->globalObject->destroy($id)) {
+                return redirect()->back()->with(['success' => $this->moduleName . "  deleted successfully"]);
+            }
+        } catch (QueryException $exception) {
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
+
+        }
+        return redirect()->back()->with(['error' => "Unable to handle this request !"]);
+
     }
 }
