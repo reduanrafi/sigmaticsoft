@@ -16,11 +16,14 @@ class ProductsController extends Controller {
 
     private $retrievedDataList;
     private $singleData;
-    private $filePath = 'admin.pages.products';
+    private $filePath = '';
 
     public function __construct() {
 
+        $this->filePath = $this->adminPath.$this->moduleName;
+
         $this->globalObject = new Product();
+
     }
     public function index() {
 

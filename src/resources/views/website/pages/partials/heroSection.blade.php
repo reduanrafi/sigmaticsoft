@@ -19,5 +19,5 @@
         </div>
     </div>
 </div>
-@include('website/pages/products')
+@include('website.pages.public.products')
 @endsection

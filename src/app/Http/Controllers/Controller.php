@@ -10,4 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public $adminPath= "admin.pages";
+    public $publicPath = "website.pages.public.";
+    public $privatePath = "website.pages.private.";
 }
