@@ -30,8 +30,9 @@ Route::get('/clear-cache', function () {
 });
 
 Route::get('/', [IndexController::class, 'index'])->name('website.index');
+Route::get('/products', [IndexController::class, 'products'])->name('website.products');
 
-// Route::get('products', 'website.pages.heroSection');
+
 Route::get('product-details/{slug}', [ProductDetailsController::class, 'index'])->name('website.details');
 Route::view('login-register', 'website.pages.login-register');
 Route::view('profile', 'website.pages.profile');

@@ -38,14 +38,23 @@
                 </div>
                 <div class="card-footer border-0" style="background-color: white !important;">
                     <div class="d-flex flex-row justify-content-between my-2">
-                        @if (!$product->quantity)
+                        @if ($product->quantity<1)
                         <button class="btn btn-success" style="font-size: 13px;">
                             Stock Out
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         @else
-                        <button class="btn btn-success" style="font-size: 13px;">
+                        <button class="btn btn-success" style="font-size: 13px;"
+                                @click="addToCart(
+                            '{{$product->id}}',
+                            '{{$product->name}}',
+                            '{{$product->price}}',
+                            '{{$product->featured_image}}',
+
+                            )"
+                        >
                             Add To Cart
+
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         @endif

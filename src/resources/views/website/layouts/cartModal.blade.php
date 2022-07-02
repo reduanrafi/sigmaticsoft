@@ -3,13 +3,13 @@
         <div class="card-header">
             <p class="ms-auto" style="cursor: pointer;" id="modalClose"><i class="fa-solid fa-x mt-3"></i></p>
         </div>
-        <div class="card-body bg-leaf cart-content">
+        <div class="card-body bg-leaf cart-content" v-for="(item, index) in cartItems">
             <div class="product-img">
-                <img src="images/product-2.png" width="70" alt="">
+                <img :src="item.image" width="70" alt="">
             </div>
             <div class="product-cart-content items">
-                <small>Broccoli Food</small>
-                <small>$ 320</small>
+                <small>@{{ item.name }}</small>
+                <small>@{{ item.price }}</small>
                 <input type="number" value="1" class="w-25">
             </div>
             <a class="text-decoration-none text-dark" style="cursor: pointer;float: right;">

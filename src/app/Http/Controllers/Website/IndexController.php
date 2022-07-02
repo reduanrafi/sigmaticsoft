@@ -14,13 +14,23 @@ class IndexController extends Controller {
     private $singleData;
 
     public function __construct() {
-        $this->globalObject = new User();
+
+        $this->globalObject = new Product();
     }
 
     public function Index() {
+
         $data['products']   = Product::all();
         $data['categories'] = Category::all();
+
         return view('website.index', $data);
+    }
+    public function Products() {
+
+        $data['products']   = Product::all();
+        $data['categories'] = Category::all();
+
+        return view($this->publicPath.'products', $data);
     }
 
 }

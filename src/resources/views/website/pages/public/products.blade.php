@@ -1,4 +1,6 @@
 <!-- Product start -->
+@extends('website.layouts.master')
+@section('content')
 <div class="row my-5 mx-3 product-section-title">
     <h1 class="text-center">Our Products</h1>
     <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -292,4 +294,5 @@
         </div>
     </div>
 </div>
+@endsection
 <!-- Product end -->
