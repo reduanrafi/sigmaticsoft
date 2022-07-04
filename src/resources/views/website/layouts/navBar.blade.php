@@ -31,7 +31,7 @@
                 </span>
                 </button>
                 <div>
-                    <a class="profile" href="user-profile.html">
+                    <a class="profile" href="{{ route('login') }}">
                         <img class="img-fluid" src="{{asset('assets/images/profile.png')}}" alt="">
                     </a>
                 </div>
