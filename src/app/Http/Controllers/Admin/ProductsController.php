@@ -20,7 +20,7 @@ class ProductsController extends Controller {
 
     public function __construct() {
 
-        $this->filePath = $this->adminPath.$this->moduleName;
+        $this->filePath = $this->adminPath.".".$this->moduleName;
 
         $this->globalObject = new Product();
 
