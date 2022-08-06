@@ -7,7 +7,7 @@ let renderer,
     controls,
     container = document.getElementById("canvas_container"),
     timeout_Debounce,
-    noise = new SimplexNoise(),
+    //  noise = new SimplexNoise(),
     cameraSpeed = 0,
     blobScale = 3;
 
