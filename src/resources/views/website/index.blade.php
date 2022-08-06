@@ -15,66 +15,18 @@
                   </div>
             </div>
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+            @for($i=0;$i<5;$i++)      
                   <div class="col">
                         <div class="hero_service_box">
+                              
                               <a href="#">
-                                    <img src="{{ asset('assets/images/service/wordpressvg.svg') }}" alt="">
-                                    <p>Wordpress</p>
+                                    <img src="{{ asset('assets/images/service/logo.png') }}" alt="">
+                                    <p>Laravel</p>
                               </a>
-                              <a href="#">
-                                    <img width="50" src="{{ asset('assets/images/service/html.svg') }}" alt="">
-                                    <p>HTML</p>
-                              </a>
+                              
                         </div>
                   </div>
-                  <div class="col">
-                        <div class="hero_service_box">
-                              <a href="#">
-                                    <img src="{{ asset('assets/images/service/wordpressvg.svg') }}" alt="">
-                                    <p>Wordpress</p>
-                              </a>
-                              <a href="#">
-                                    <img width="50" src="{{ asset('assets/images/service/html.svg') }}" alt="">
-                                    <p>HTML</p>
-                              </a>
-                        </div>
-                  </div>
-                  <div class="col">
-                        <div class="hero_service_box">
-                              <a href="#">
-                                    <img src="{{ asset('assets/images/service/wordpressvg.svg') }}" alt="">
-                                    <p>Wordpress</p>
-                              </a>
-                              <a href="#">
-                                    <img width="50" src="{{ asset('assets/images/service/html.svg') }}" alt="">
-                                    <p>HTML</p>
-                              </a>
-                        </div>
-                  </div>
-                  <div class="col">
-                        <div class="hero_service_box">
-                              <a href="#">
-                                    <img src="{{ asset('assets/images/service/wordpressvg.svg') }}" alt="">
-                                    <p>Wordpress</p>
-                              </a>
-                              <a href="#">
-                                    <img width="50" src="{{ asset('assets/images/service/html.svg') }}" alt="">
-                                    <p>HTML</p>
-                              </a>
-                        </div>
-                  </div>
-                  <div class="col">
-                        <div class="hero_service_box">
-                              <a href="#">
-                                    <img src="{{ asset('assets/images/service/wordpressvg.svg') }}" alt="">
-                                    <p>Wordpress</p>
-                              </a>
-                              <a href="#">
-                                    <img width="50" src="{{ asset('assets/images/service/html.svg') }}" alt="">
-                                    <p>HTML</p>
-                              </a>
-                        </div>
-                  </div>
+            @endfor
             </div>
       </div>
 </main>
