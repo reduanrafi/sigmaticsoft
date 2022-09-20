@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\StaticPageController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::get('/clear-cache', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('product-details', [HomeController::class, 'pd_details'])->name('details');
+Route::get('/learning', [StaticPageController::class, 'learning'])->name('learning');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
