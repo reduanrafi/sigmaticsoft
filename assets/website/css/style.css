@@ -8,24 +8,26 @@
   color: coral;
 }
 .bg-owl {
-  background-color: #2d394b !important;
+  background-color: #fffb !important;
 }
 .navbar {
   padding: 0 !important;
 }
 .nav-item a {
-  color: #b0bec5 !important;
+  color: #000 !important;
+  font-size: 16px;
 }
 .dropdown-menu {
-  background: #198754 !important;
+  background: #fff !important;
+  color: #000 !important;
 }
 .dropdown-menu[data-bs-popper] {
   top: 100%;
-  left: -31px !important;
   margin-top: var(--bs-dropdown-spacer);
 }
 .hero_section {
   padding: 50px 20px;
+  margin-top: 100px !important;
 }
 .hero_text {
   display: flex;

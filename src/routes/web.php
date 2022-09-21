@@ -28,7 +28,7 @@ Route::get('/clear-cache', function () {
     return redirect()->back();
 });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('website.index');
 Route::get('product-details', [HomeController::class, 'pd_details'])->name('details');
 Route::get('/learning', [StaticPageController::class, 'learning'])->name('learning');
 
