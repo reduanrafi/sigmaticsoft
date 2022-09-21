@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-owl fixed-top shadow-sm">
+<nav class="navbar navbar-expand-lg bg-owl shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ route('website.index') }}">
             <img width="80" height="50" class="img-fluid" src="{{ asset('assets/images/logo/logo.png') }}"
                 alt="">
         </a>
@@ -26,6 +26,9 @@
                         <li><a class="dropdown-item" href="#">Website</a></li>
                         <li><a class="dropdown-item" href="#">ERP Software</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="shop.html">Contact</a>
