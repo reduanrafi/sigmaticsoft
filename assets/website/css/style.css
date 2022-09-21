@@ -267,3 +267,31 @@
   border: 1px solid #198754;
   margin-top: -5px;
 }
+.nav-link {
+  color: black !important;
+  font-size: 20px !important;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #000 !important;
+  background: none !important;
+  border-bottom: 1px solid blue !important;
+  border-radius: 0 0 0 0;
+}
+.accordion-button:focus {
+  appearance: none !important;
+  outline: 0;
+  border: 0;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+.table tbody tr {
+  cursor: pointer !important;
+}
