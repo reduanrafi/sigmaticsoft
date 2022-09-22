@@ -4,11 +4,11 @@
 @include('website.layouts.header')
 
 <body>
-      <header>
-            @include('website.layouts.navBar')
-      </header>
-      @yield('content')
-      @include('website.layouts.footerscript')
+    <header>
+        @include('website.layouts.navBar')
+    </header>
+    @yield('content')
+    @include('website.layouts.footer')
 </body>
 
 </html>

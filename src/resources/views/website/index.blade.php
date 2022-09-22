@@ -17,7 +17,6 @@
                 @for ($i = 0; $i < 5; $i++)
                     <div class="col">
                         <div class="hero_service_box">
-
                             <a href="#">
                                 <img src="{{ asset('assets/images/logo/logo.png') }}" alt="">
                                 <p>Laravel</p>
