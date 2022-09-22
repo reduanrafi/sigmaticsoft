@@ -14,7 +14,7 @@
                     <a class="nav-link" aria-current="page" href="{{ route('website.index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">About</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('website.about') }}">About</a>
                 </li>
                 <li class="nav-item dropdown text-start">
                     <a type="button" class="nav-link dropdown-toggle text-start" href="#" id="navbarDropdown"

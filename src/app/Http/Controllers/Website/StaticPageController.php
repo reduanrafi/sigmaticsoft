@@ -11,4 +11,10 @@ class StaticPageController extends Controller {
         return view('website.pages.learning');
 
     }
+
+    public function about() {
+
+        return view('website.pages.about');
+
+    }
 }

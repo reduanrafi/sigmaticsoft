@@ -9,7 +9,7 @@
             <form action="">
                 <div class="input-group w-75 mx-auto">
                     <input type="text" class="form-control subscribe" placeholder="Write Your Email">
-                    <button class="btn btn-primary" type="button" style="width: 200px">Button</button>
+                    <button class="btn btn-primary" type="button" style="width: 200px">Subscribe</button>
                 </div>
                 <p class="small text-center mt-3">By clicking the button you agree to the Privacy Policy and Terms and
                     Conditions</p>
