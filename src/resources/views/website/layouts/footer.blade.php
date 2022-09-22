@@ -68,8 +68,11 @@
                 </div>
             </div>
             <div class="col-12 border-top border-white py-2">
-                <p class="text-white pt-2">&copy; {{ now()->year }} Sigmaticsoft. All Rights Reserved</p>
-                <span>hello</span>
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="text-white pt-2">&copy; {{ now()->year }} Sigmaticsoft. All Rights Reserved</p>
+                    <p class="text-white pt-2">Last Update: {{ now()->format('F Y') }}</p>
+                </div>
+
             </div>
         </div>
     </div>

@@ -29,4 +29,5 @@
         </div>
     </main>
     @include('website.pages.products')
+    @include('website.pages.subscribe')
 @endsection
