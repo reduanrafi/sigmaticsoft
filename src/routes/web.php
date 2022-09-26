@@ -32,6 +32,7 @@ Route::get('/', [HomeController::class, 'index'])->name('website.index');
 Route::get('product-details', [HomeController::class, 'pd_details'])->name('details');
 Route::get('/learning', [StaticPageController::class, 'learning'])->name('learning');
 Route::get('/about', [StaticPageController::class, 'about'])->name('website.about');
+Route::get('/contact', [StaticPageController::class, 'contact'])->name('website.contact');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);

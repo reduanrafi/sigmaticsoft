@@ -17,4 +17,10 @@ class StaticPageController extends Controller {
         return view('website.pages.about');
 
     }
+
+    public function contact() {
+
+        return view('website.pages.contact');
+
+    }
 }

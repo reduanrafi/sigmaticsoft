@@ -31,7 +31,7 @@
                     <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="shop.html">Contact</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('website.contact') }}">Contact</a>
                 </li>
             </ul>
         </div>
