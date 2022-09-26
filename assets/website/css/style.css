@@ -49,6 +49,7 @@
 .hero_section .hero_text .input-group input {
   height: 60px !important;
   box-shadow: 0 7px 14px #a2a6d166;
+  border-radius: none;
 }
 .hero_section .hero_text .input-group .btn {
   color: black;
@@ -300,7 +301,10 @@
 .subscribe {
   height: 60px;
 }
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
   border-color: rgba(126, 239, 104, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
     0 0 8px rgba(243, 245, 243, 0.6);
