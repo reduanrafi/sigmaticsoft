@@ -310,3 +310,28 @@ textarea:focus {
     0 0 8px rgba(243, 245, 243, 0.6);
   outline: 0 none;
 }
+header {
+  position: sticky;
+  width: 100%;
+  z-index: 2;
+}
+
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+  transition: 1s;
+  animation: scroll 01s;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transition: 1s;
+  }
+}

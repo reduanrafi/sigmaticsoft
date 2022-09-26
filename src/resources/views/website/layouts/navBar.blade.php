@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-owl shadow-sm">
+<nav class="navbar navbar-expand-lg bg-owl shadow-sm ">
     <div class="container">
         <a class="navbar-brand" href="{{ route('website.index') }}">
             <img width="80" height="50" class="img-fluid" src="{{ asset('assets/images/logo/logo.png') }}"

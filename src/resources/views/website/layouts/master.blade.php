@@ -9,6 +9,12 @@
     </header>
     @yield('content')
     @include('website.layouts.footer')
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('nav');
+            header.classList.toggle('sticky', window.scrollY > 100)
+        })
+    </script>
 </body>
 
 </html>
