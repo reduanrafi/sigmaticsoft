@@ -28,12 +28,17 @@
                         <i class="fa-regular fa-envelope text-white fs-4"></i>
                     </button>
                 </div>
-                <p class="text-white pt-3">
-                    <i class="fa-solid fa-location-dot text-white pe-3 fs-5"></i> <span class="pe-3">Bajitpur,
+                <div>
+                    <p class="text-white">
+                    <i class="fa-solid fa-location-dot text-white pe-1 fs-5"></i> <span class="pe-1">Bajitpur,
                         Kishorgonj,
                         Dhaka-Bangladesh.</span>
-                    <i class="fa-regular fa-envelope text-white pe-3 fs-5"></i> Email: sigmaticsoft@gmail.com
+
                 </p>
+                <p class="text-white">
+                    <i class="fa-regular fa-envelope text-white pe-2 fs-5"></i><span class="pe-1">sigmaticsoft@gmail.com</span>
+                </p>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="mt-4 d-flex justify-content-center">
