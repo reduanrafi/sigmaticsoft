@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:TCJSM4vu2MP30coBOvU3NbvGcCjev7McQetXlhQJlA8=',
+    'key' => 'base64:ezjr47A+RFb1MUASWjGd99s4NQUDCwKhyIjDnpGshkM=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -192,7 +192,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\framework/cache/data',
+        'path' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -365,13 +365,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\app',
+        'root' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\app/public',
+        'root' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -391,7 +391,7 @@
     ),
     'links' => 
     array (
-      'E:\\xampp\\htdocs\\sigmatic-soft\\src\\public\\storage' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\app/public',
+      'E:\\xampp\\htdocs\\sigmaticsoft\\src\\public\\storage' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -430,13 +430,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -488,7 +488,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -554,7 +554,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\resources\\views/vendor/mail',
+        0 => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -660,7 +660,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\framework/sessions',
+    'files' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -680,9 +680,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\resources\\views',
+      0 => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\resources\\views',
     ),
-    'compiled' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src\\storage\\framework\\views',
+    'compiled' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src\\storage\\framework\\views',
   ),
   'image' => 
   array (
@@ -760,8 +760,8 @@
     'ignored_solution_providers' => 
     array (
     ),
-    'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'E:\\xampp\\htdocs\\sigmatic-soft\\src',
+    'enable_runnable_solutions' => true,
+    'remote_sites_path' => 'E:\\xampp\\htdocs\\sigmaticsoft\\src',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
