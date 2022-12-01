@@ -1,8 +1,14 @@
+body{
+  font-family: Emoji;
+}
+
+
 #canvas_container {
   margin: 0;
   background-image: url("../../images/hero.jpg");
   background-size: cover;
   backdrop-filter: brightness(50%);
+  background-position: center;
 }
 .fa-star {
   color: coral;
@@ -26,7 +32,7 @@
   margin-top: var(--bs-dropdown-spacer);
 }
 .hero_section {
-  padding: 50px 20px;
+  padding: 150px 20px;
 }
 .hero_text {
   display: flex;
