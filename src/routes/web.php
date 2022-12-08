@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\StaticPageController;
@@ -38,8 +40,9 @@ Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::group(['prefix' => 'private-panel', 'middleware' => ['auth']], function () {
-    Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::view('dashboard', 'admin.layouts.master');
+Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('category', CategoryController::class);
     Route::resource('products', ProductsController::class);
+Route::resource('service', ServiceController::class);
+Route::resource('portfolio', PortfolioController::class);
 });
