@@ -12,5 +12,17 @@
                 <span class="menu-title">Products</span>
             </a>
         </li>
+        <li class="nav-item {{request()->is('private-panel/service*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('service.index') }}">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">Services</span>
+            </a>
+        </li>
+        <li class="nav-item {{request()->is('private-panel/portfolio*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('portfolio.index') }}">
+                <i class="mdi mdi-account menu-icon"></i>
+                <span class="menu-title">Portfolio</span>
+            </a>
+        </li>
     </ul>
 </nav>
