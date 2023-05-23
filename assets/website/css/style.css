@@ -6,6 +6,7 @@ body{
 #canvas_container {
   margin: 0;
   background-image: url("../../images/hero.jpg");
+ 
   background-size: cover;
   backdrop-filter: brightness(50%);
   background-position: center;
@@ -43,6 +44,8 @@ body{
 .hero_text h3 {
   font-size: 2.2vw;
   color: white;
+   background-color: white;
+   padding: 5px;
 }
 .hero_text h4 {
   font-size: 1.5vw;
