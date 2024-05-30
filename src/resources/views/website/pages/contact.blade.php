@@ -31,6 +31,19 @@
                         </div>
                     </form>
                 </div>
+                <div class=" text-center py-3">
+                    <h2 class="h3 fw-bolder ">Address</h2>
+                    <p class="text-black">
+                        <i class="fa-solid fa-location-dot text pe-1 fs-5"></i> <span class="pe-1">Bajitpur,
+                        Kishorgonj,
+                        Dhaka-Bangladesh.</span>
+
+                    </p>
+                    <p class="text-black">
+                        <i class="fa-regular fa-envelope text pe-2 fs-5"></i><span class="pe-1">sigmaticsoft@gmail.com</span>
+                    </p>
+
+                </div>
             </div>
         </div>
     </div>
