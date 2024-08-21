@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Illuminate\Http\Request;
+
+
 class HomeController extends Controller {
     public function index() {
 
@@ -11,9 +14,12 @@ class HomeController extends Controller {
         return view('website.index',['products'=>$products]);
     }
 
-    public function pd_details() {
+    public function pd_details(Request $request,$slug) {
 
-        return view('website.pages.productDetails');
+        $products = Product::limit(5)->get();
+        $product = Product::where('slug',$slug)->first();
+
+        return view('website.pages.productDetails',['product'=>$product,'products'=>$products]);
 
     }
 }

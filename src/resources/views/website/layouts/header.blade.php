@@ -5,5 +5,5 @@
     <title>{{ 'Sigmatic Soft' }}</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/logo.png') }}" type="image/x-icon">
     @include('website.layouts.headerStyle')
-    @yield('extra-css')
+    @yield('extra-style')
 </head>

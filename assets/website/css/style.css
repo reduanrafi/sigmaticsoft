@@ -5,11 +5,12 @@ body{
 
 #canvas_container {
   margin: 0;
-  background-image: url("../../images/hero.jpg");
+  /*background-image: url("../../images/hero.jpg");*/
  
   background-size: cover;
   backdrop-filter: brightness(50%);
   background-position: center;
+  background: #fffcea;
 }
 .fa-star {
   color: coral;

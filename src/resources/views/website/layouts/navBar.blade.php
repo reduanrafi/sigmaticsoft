@@ -21,15 +21,15 @@
                         role="button" data-bs-toggle="dropdown" aria-expanded="false" style="appearance: none;">
                         Products
                     </a>
-                    <ul class="dropdown-menu border-0 bg-transparent rounded-0" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Ecomerce Application</a></li>
-                        <li><a class="dropdown-item" href="#">Website</a></li>
-                        <li><a class="dropdown-item" href="#">ERP Software</a></li>
-                    </ul>
+{{--                    <ul class="dropdown-menu border-0 bg-transparent rounded-0" aria-labelledby="navbarDropdown">--}}
+{{--                        <li><a class="dropdown-item" href="#">Ecomerce Application</a></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">Website</a></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">ERP Software</a></li>--}}
+{{--                    </ul>--}}
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('website.contact') }}">Contact</a>
                 </li>
