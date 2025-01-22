@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 hero_text">
-                    <h3 class="text-dark">Turning Your Business Ideas into Digital Reality.</h3>
-                    <h4 class="text-dark">
+                    <h1 class="text-dark">Turning Your Business Ideas into Digital Reality.</h1>
+                    <h2 class="text-dark">
                         Empower your idea with cutting-edge digital solutions
-                    </h4>
+                    </h2>
                     <a href="#contact" class="btn btn-success btn-lg m-2">Get Started</a>
 {{--                    <a href="#services" class="btn btn-outline-light btn-lg m-2">Learn More</a>--}}
                     <div class="input-group text-center">

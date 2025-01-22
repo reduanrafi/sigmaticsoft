@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{ route('website.index') }}">
             <img width="80" height="50" class="img-fluid" src="{{ asset('assets/images/logo/logo.png') }}"
-                alt="">
+                 alt="sigmaticsoft">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,9 +27,9 @@
 {{--                        <li><a class="dropdown-item" href="#">ERP Software</a></li>--}}
 {{--                    </ul>--}}
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('website.contact') }}">Contact</a>
                 </li>

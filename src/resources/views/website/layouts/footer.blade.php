@@ -9,22 +9,19 @@
 
                 </p>
                 <div class="d-flex flex-row my-4">
-                    <button
-                        class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
+                    <a href="https://www.facebook.com/sigmaticsoft" target="_blank"
+                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
                         <i class="fa-brands fa-facebook text-white fs-4"></i>
-                    </button>
-                    <button
-                        class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
-                        <i class="fa-brands fa-whatsapp text-white fs-4"></i>
-                    </button>
-                    <button
-                        class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
-                        <i class="fa-brands fa-skype text-white fs-4"></i>
-                    </button>
-                    <button
-                        class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
+                    </a>
+                    <a href="https://www.linkedin.com/company/sigmaticsoft/" target="_blank"
+                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
+                        <i class="fa-brands fa-linkedin text-white fs-4"></i>
+                    </a>
+
+                    <a href="mailto:info@sigmaticsoft.com"
+                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
                         <i class="fa-regular fa-envelope text-white fs-4"></i>
-                    </button>
+                    </a>
                 </div>
                 <div>
                     <p class="text-white">
@@ -34,7 +31,7 @@
 
                 </p>
                 <p class="text-white">
-                    <i class="fa-regular fa-envelope text-white pe-2 fs-5"></i><span class="pe-1">sigmaticsoft@gmail.com</span>
+                    <i class="fa-regular fa-envelope text-white pe-2 fs-5"></i><span class="pe-1">info@sigmaticsoft.com</span>
                 </p>
                 </div>
             </div>

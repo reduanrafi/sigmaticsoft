@@ -29,12 +29,16 @@ Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('view:clear');
     return redirect()->back();
 });
-
+Route::get('sitemap.xml', function () {
+    return response()->file(public_path('sitemap.xml'))
+        ->header('Content-Type', 'text/xml');
+});
 Route::get('/', [HomeController::class, 'index'])->name('website.index');
 Route::get('product-details{slug}', [HomeController::class, 'pd_details'])->name('details');
 Route::get('/learning', [StaticPageController::class, 'learning'])->name('learning');
 Route::get('/about', [StaticPageController::class, 'about'])->name('website.about');
 Route::get('/contact', [StaticPageController::class, 'contact'])->name('website.contact');
+Route::post('/contact-submit', [StaticPageController::class, 'contactSubmit'])->name('website.contact.submit');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -45,4 +49,5 @@ Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.ind
     Route::resource('products', ProductsController::class);
 Route::resource('service', ServiceController::class);
 Route::resource('portfolio', PortfolioController::class);
+Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
 });

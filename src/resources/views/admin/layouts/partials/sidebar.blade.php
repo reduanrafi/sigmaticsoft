@@ -24,5 +24,11 @@
                 <span class="menu-title">Portfolio</span>
             </a>
         </li>
+        <li class="nav-item {{request()->is('private-panel/portfolio*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('contact.index') }}">
+                <i class="mdi mdi-account menu-icon"></i>
+                <span class="menu-title">Contact</span>
+            </a>
+        </li>
     </ul>
 </nav>
