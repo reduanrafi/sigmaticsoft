@@ -28,6 +28,11 @@
 {{--                    </ul>--}}
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('insights.index') }}">Insights</a>
+
+                </li>
+                <li class="nav-item">
+
                     <a class="nav-link" aria-current="page" href="{{ route('learning') }}">Learning</a>
                 </li>
                 <li class="nav-item">
