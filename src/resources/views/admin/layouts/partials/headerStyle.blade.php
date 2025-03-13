@@ -13,4 +13,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css') }}">
 
 <!-- endinject -->
-<link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" />
+<link rel="shortcut icon" href="{{ asset('assets/images/logo/logo.png') }}" />

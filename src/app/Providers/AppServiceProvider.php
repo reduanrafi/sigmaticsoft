@@ -9,6 +9,7 @@ use App\Observers\OrderObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
 
         User::observe(OrderObserver::class);
 
-
+        Paginator::useBootstrap();
 
         Builder::macro('whereLike', function ($attributes, string $searchTerm) {
 

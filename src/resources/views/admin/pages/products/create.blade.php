@@ -32,7 +32,9 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <div class="input-group">
-                            <textarea type="text" name="description" class="form-control"
+                            <textarea type="text" name="description"
+                                      id="editor"
+                                      class="form-control"
                                 placeholder="Write Product Description" rows="5" cols="20"></textarea>
                         </div>
                         <!-- /.input group -->
@@ -152,6 +154,14 @@
 </div>
 @endsection
 @section('script')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <!-- Summernote JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#editor').summernote();
+        });
+    </script>
 <script>
     const featureImage = document.getElementById('featured_image');
     featureImage.onchange = evt => {

@@ -11,57 +11,13 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">
 
-        @for ($i = 0; $i < 3; $i++)
-            <div class="col">
-                <div class="card h-100 shadow border-0">
-                    <a href="{{ route('details') }}">
-                        <img src="{{ asset('assets/images/product_cover/product_cover_1.png') }}"
-                             class="card-img-top" alt="">
-                    </a>
-                    <div class="card-body pt-3">
-                        <div class="product_title">
-                            <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"
-                                 alt="">
-                            <p class="card-title pt-2">Product one</p>
-                        </div>
-                        <div class="card-text pt-2">
-                            <div class="review">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="price">$29</p>
-                        </div>
-                        <div class="card-footer p-0 py-3">
-                            <a type="button" href="{{ route('details') }}"
-                               class="btn btn-outline-success w-50 me-1">Details</a>
-                            <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endfor
-    </div>
-    <div class="row py-5">
-        <div class="col-md-10 text-center">
-            <h3>Bestsellers</h3>
-            <p>Top website templates with the highest sales volume.</p>
-        </div>
-        <div class="col-md-2 d-flex align-items-center">
-            <a class="text-decoration-none" href="">View More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">
-
         @foreach ($products as $product)
-            @for ($i = 0; $i < 3; $i++)
+
                 <div class="col">
-                    <div class="card h-100 shadow border-0">
-                        <a href="{{ route('details') }}">
-                            <img src="{{ asset('assets/images/product_cover/prod_2.webp') }}" class="card-img-top"
-                                alt="">
+                    <div class="card h-100 shadow border-0 ">
+                        <a href="{{ route('details', $product->slug) }}">
+                            <img src="{{ asset($product->featured_image) }}"
+                                class="card-img-top" alt="">
                         </a>
                         <div class="card-body pt-3">
                             <div class="product_title">
@@ -80,60 +36,106 @@
                                 <p class="price">$29</p>
                             </div>
                             <div class="card-footer p-0 py-3">
-                                <a type="button" href="{{ route('details') }}"
+                                <a type="button" href="{{ route('details',$product->slug) }}"
                                     class="btn btn-outline-success w-50 me-1">Details</a>
                                 <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endfor
-        @endforeach
-    </div>
-    <div class="row py-5">
-        <div class="col-md-10 text-center">
-            <h3>Featured</h3>
-            <p>Look through the best website designs hand-picked by our expert review team.</p>
-        </div>
-        <div class="col-md-2 d-flex align-items-center">
-            <a class="text-decoration-none" href="">View More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">
 
-        @foreach ($products as $product)
-            @for ($i = 0; $i < 3; $i++)
-                <div class="col">
-                    <div class="card h-100 shadow border-0">
-                        <a href="{{ route('details') }}">
-                            <img src="{{ asset('assets/images/product_cover/prod_3.jpg') }}" class="card-img-top"
-                                alt="">
-                        </a>
-                        <div class="card-body pt-3">
-                            <div class="product_title">
-                                <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"
-                                    alt="">
-                                <p class="card-title pt-2">{{ $product->name }}</p>
-                            </div>
-                            <div class="card-text pt-2">
-                                <div class="review">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="price">$29</p>
-                            </div>
-                            <div class="card-footer p-0 py-3">
-                                <a type="button" href="{{ route('details') }}"
-                                    class="btn btn-outline-success w-50 me-1">Details</a>
-                                <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endfor
         @endforeach
     </div>
+{{--    <div class="row py-5">--}}
+{{--        <div class="col-md-10 text-center">--}}
+{{--            <h3>Bestsellers</h3>--}}
+{{--            <p>Top website templates with the highest sales volume.</p>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2 d-flex align-items-center">--}}
+{{--            <a class="text-decoration-none" href="">View More <i class="fa-solid fa-arrow-right"></i></a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">--}}
+
+{{--        @foreach ($products as $product)--}}
+{{--            @for ($i = 0; $i < 3; $i++)--}}
+{{--                <div class="col">--}}
+{{--                    <div class="card h-100 shadow border-0">--}}
+{{--                        <a href="{{ route('details') }}">--}}
+{{--                            <img src="{{ asset('assets/images/product_cover/prod_2.webp') }}" class="card-img-top"--}}
+{{--                                alt="">--}}
+{{--                        </a>--}}
+{{--                        <div class="card-body pt-3">--}}
+{{--                            <div class="product_title">--}}
+{{--                                <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"--}}
+{{--                                    alt="">--}}
+{{--                                <p class="card-title pt-2">{{ $product->name }}</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-text pt-2">--}}
+{{--                                <div class="review">--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                </div>--}}
+{{--                                <p class="price">$29</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-footer p-0 py-3">--}}
+{{--                                <a type="button" href="{{ route('details') }}"--}}
+{{--                                    class="btn btn-outline-success w-50 me-1">Details</a>--}}
+{{--                                <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endfor--}}
+{{--        @endforeach--}}
+{{--    </div>--}}
+{{--    <div class="row py-5">--}}
+{{--        <div class="col-md-10 text-center">--}}
+{{--            <h3>Featured</h3>--}}
+{{--            <p>Look through the best website designs hand-picked by our expert review team.</p>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2 d-flex align-items-center">--}}
+{{--            <a class="text-decoration-none" href="">View More <i class="fa-solid fa-arrow-right"></i></a>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">--}}
+
+{{--        @foreach ($products as $product)--}}
+{{--            @for ($i = 0; $i < 3; $i++)--}}
+{{--                <div class="col">--}}
+{{--                    <div class="card h-100 shadow border-0">--}}
+{{--                        <a href="{{ route('details') }}">--}}
+{{--                            <img src="{{ asset('assets/images/product_cover/prod_3.jpg') }}" class="card-img-top"--}}
+{{--                                alt="">--}}
+{{--                        </a>--}}
+{{--                        <div class="card-body pt-3">--}}
+{{--                            <div class="product_title">--}}
+{{--                                <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"--}}
+{{--                                    alt="">--}}
+{{--                                <p class="card-title pt-2">{{ $product->name }}</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-text pt-2">--}}
+{{--                                <div class="review">--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                    <i class="fa-solid fa-star"></i>--}}
+{{--                                </div>--}}
+{{--                                <p class="price">$29</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-footer p-0 py-3">--}}
+{{--                                <a type="button" href="{{ route('details') }}"--}}
+{{--                                    class="btn btn-outline-success w-50 me-1">Details</a>--}}
+{{--                                <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endfor--}}
+{{--        @endforeach--}}
+{{--    </div>--}}
 </section>
