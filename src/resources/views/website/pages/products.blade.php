@@ -11,40 +11,38 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-5 pb-5">
 
-        @foreach ($products as $product)
-            @for ($i = 0; $i < 3; $i++)
-                <div class="col">
-                    <div class="card h-100 shadow border-0">
-                        <a href="{{ route('details') }}">
-                            <img src="{{ asset('assets/images/product_cover/product_cover_1.png') }}"
-                                class="card-img-top" alt="">
-                        </a>
-                        <div class="card-body pt-3">
-                            <div class="product_title">
-                                <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"
-                                    alt="">
-                                <p class="card-title pt-2">{{ $product->name }}</p>
+        @for ($i = 0; $i < 3; $i++)
+            <div class="col">
+                <div class="card h-100 shadow border-0">
+                    <a href="{{ route('details') }}">
+                        <img src="{{ asset('assets/images/product_cover/product_cover_1.png') }}"
+                             class="card-img-top" alt="">
+                    </a>
+                    <div class="card-body pt-3">
+                        <div class="product_title">
+                            <img class="logo" src="{{ asset('assets/images/service/shopify.svg') }}"
+                                 alt="">
+                            <p class="card-title pt-2">Product one</p>
+                        </div>
+                        <div class="card-text pt-2">
+                            <div class="review">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="card-text pt-2">
-                                <div class="review">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <p class="price">$29</p>
-                            </div>
-                            <div class="card-footer p-0 py-3">
-                                <a type="button" href="{{ route('details') }}"
-                                    class="btn btn-outline-success w-50 me-1">Details</a>
-                                <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>
-                            </div>
+                            <p class="price">$29</p>
+                        </div>
+                        <div class="card-footer p-0 py-3">
+                            <a type="button" href="{{ route('details') }}"
+                               class="btn btn-outline-success w-50 me-1">Details</a>
+                            <a type="button" href="" class="btn btn-outline-info w-50">Demo</a>
                         </div>
                     </div>
                 </div>
-            @endfor
-        @endforeach
+            </div>
+        @endfor
     </div>
     <div class="row py-5">
         <div class="col-md-10 text-center">
