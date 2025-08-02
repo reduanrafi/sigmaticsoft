@@ -2,7 +2,7 @@
 <html lang="en">
 
 @include('admin.layouts.partials.header')
-
+@yield('extra-style')
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->

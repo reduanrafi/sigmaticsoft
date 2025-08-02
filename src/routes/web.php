@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -52,8 +53,9 @@ Route::group(['prefix' => 'private-panel', 'middleware' => ['auth']], function (
 Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('category', CategoryController::class);
     Route::resource('products', ProductsController::class);
-Route::resource('service', ServiceController::class);
-Route::resource('portfolio', PortfolioController::class);
-Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
-Route::resource('insight', \App\Http\Controllers\Admin\InsightController::class);
+    Route::resource('orders', OrderController::class);
+    Route::resource('service', ServiceController::class);
+    Route::resource('portfolio', PortfolioController::class);
+    Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('insight', \App\Http\Controllers\Admin\InsightController::class);
 });
