@@ -15,6 +15,7 @@ class Category extends Model {
      * Property area
      *****************************/
     protected $fillable = [
+        'site_name',
         'parent_id',
         'slug',
         'name',
