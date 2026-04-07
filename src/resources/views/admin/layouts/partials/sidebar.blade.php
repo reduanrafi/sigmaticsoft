@@ -36,5 +36,12 @@
                 <span class="menu-title">Contact</span>
             </a>
         </li>
+        <hr class="text-red">
+        <li class="nav-item {{request()->is('private-panel/orders*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('orders.index') }}">
+                <i class="mdi mdi-account menu-icon"></i>
+                <span class="menu-title">Orders</span>
+            </a>
+        </li>
     </ul>
 </nav>
