@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'app_origin',
     ];
 
     /**
@@ -41,4 +42,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * Bedtime Stories Relationships
+     */
+    public function storyFavorites()
+    {
+        return $this->belongsToMany(\App\Models\BedtimeStories\BedtimeStory::class, 'bedtime_favorites', 'user_id', 'story_id')->withTimestamps();
+    }
+
+    public function storyProgress()
+    {
+        return $this->hasMany(\App\Models\BedtimeStories\BedtimeProgress::class);
+    }
 }

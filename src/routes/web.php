@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\InsightController;
 use App\Http\Controllers\Website\StaticPageController;
+use App\Http\Controllers\Website\WorldCupController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,7 @@ Route::get('/learning', [StaticPageController::class, 'learning'])->name('learni
 Route::get('/about', [StaticPageController::class, 'about'])->name('website.about');
 Route::get('/contact', [StaticPageController::class, 'contact'])->name('website.contact');
 Route::post('/contact-submit', [StaticPageController::class, 'contactSubmit'])->name('website.contact.submit');
+Route::get('/worldcup', [WorldCupController::class, 'index'])->name('website.worldcup');
 
 Route::get('/insites', [InsightController::class, 'index'])->name('insights.index');
 Route::get('/insites/{slug}', [InsightController::class, 'show'])->name('insights.show');
@@ -58,4 +60,8 @@ Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.ind
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
     Route::resource('insight', \App\Http\Controllers\Admin\InsightController::class);
+    
+    // World Cup Fixture Management routes
+    Route::get('/worldcup', [\App\Http\Controllers\Admin\WorldCupAdminController::class, 'index'])->name('admin.worldcup.index');
+    Route::post('/worldcup/update', [\App\Http\Controllers\Admin\WorldCupAdminController::class, 'update'])->name('admin.worldcup.update');
 });

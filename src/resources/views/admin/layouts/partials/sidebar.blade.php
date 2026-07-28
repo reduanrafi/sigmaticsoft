@@ -36,6 +36,12 @@
                 <span class="menu-title">Contact</span>
             </a>
         </li>
+        <li class="nav-item {{request()->is('private-panel/worldcup*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('admin.worldcup.index') }}">
+                <i class="mdi mdi-soccer menu-icon"></i>
+                <span class="menu-title">World Cup Matches</span>
+            </a>
+        </li>
         <hr class="text-red">
         <li class="nav-item {{request()->is('private-panel/orders*')? 'active':'' }}">
             <a class="nav-link" href="{{ route('orders.index') }}">
