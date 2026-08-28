@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
 
         JsonResource::withoutWrapping();
 
-        User::observe(OrderObserver::class);
+        Order::observe(OrderObserver::class);
 
         Paginator::useBootstrap();
 

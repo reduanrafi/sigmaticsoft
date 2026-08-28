@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'app_origin',
+        'client_id',
+        'role',
     ];
 
     /**
@@ -42,6 +44,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Role checking helpers
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isClient()
+    {
+        return $this->role === 'client';
+    }
+
+    /**
+     * Client Relationship
+     */
+    public function client()
+    {
+        return $this->belongsTo(\App\Models\Client::class);
+    }
+
+    /**
+     * Assigned Tasks Relationship
+     */
+    public function tasks()
+    {
+        return $this->hasMany(\App\Models\Task::class, 'assigned_to');
+    }
+
     /**
      * Bedtime Stories Relationships
      */

@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <label>Portfolio Description</label>
                             <div class="input-group">
-                                <textarea class="w-100 form-control" name="description" id="" rows="10" placeholder="Write description about Portfolio">{{ $portfolio->name }}</textarea>
+                                <textarea class="w-100 form-control" name="description" id="editor" rows="10" placeholder="Write description about Portfolio">{{ $portfolio->description }}</textarea>
                             </div>
                             <!-- /.input group -->
                         </div>
@@ -79,5 +79,15 @@
                 imageOutput.src = URL.createObjectURL(file)
             }
         }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#editor').summernote({
+                height: 250,
+                placeholder: 'Write description about portfolio...'
+            });
+        });
     </script>
 @endsection

@@ -2,34 +2,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/logo.png') }}" alt="sigmaticsoft" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/website/images/logo.png') }}" type="image/x-icon">
     
     <!-- Primary Meta Tags -->
-    <title>SigmaticSoft | Premium Digital Solutions & Software Development</title>
-    <meta name="title" content="SigmaticSoft | Premium Digital Solutions & Software Development">
-    <meta name="description" content="SigmaticSoft is a top-tier software company specializing in MVP development, custom web applications, mobile apps, and complete business digitization solutions.">
-    <meta name="keywords" content="Sigmaticsoft, Software Development, Web Development, Mobile App Development, MVP Development, Business Digitization, SaaS Solutions, Digital Transformation">
-    <meta name="author" content="SigmaticSoft">
+    <title>@yield('title', 'Sigmatic Soft | Business Systems Engineering Company')</title>
+    <meta name="title" content="@yield('title', 'Sigmatic Soft | Business Systems Engineering Company')">
+    <meta name="description" content="@yield('meta_description', 'Sigmatic Soft helps growing businesses modernize legacy software, integrate disconnected business systems, and automate operations with practical AI.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'legacy software modernization, legacy application modernization, Laravel modernization, PHP application modernization, software modernization company, business system integration, API integration company, e-commerce integration, AI business automation, AI workflow automation, managed software engineering, external engineering team, retail software integration, POS integration, e-commerce automation')">
+    <meta name="author" content="Sigmatic Soft">
 
-    <!-- GEO / Local SEO Tags (Defaults - Can be customized later) -->
-    <meta name="geo.region" content="US" />
-    <meta name="geo.placename" content="New York" />
-    <meta name="geo.position" content="40.712775;-74.005973" />
-    <meta name="ICBM" content="40.712775, -74.005973" />
+    <!-- GEO / Local SEO Tags (Defaults - Dynamic overrides enabled) -->
+    <meta name="geo.region" content="@yield('geo_region', 'BD-13')" />
+    <meta name="geo.placename" content="@yield('geo_placename', 'Dhaka')" />
+    <meta name="geo.position" content="@yield('geo_position', '23.8103;90.4125')" />
+    <meta name="ICBM" content="@yield('geo_position', '23.8103, 90.4125')" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sigmaticsoft.com/">
-    <meta property="og:title" content="SigmaticSoft | Premium Digital Solutions & Software Development">
-    <meta property="og:description" content="SigmaticSoft is a top-tier software company specializing in MVP development, custom web applications, mobile apps, and complete business digitization solutions.">
-    <meta property="og:image" content="{{ asset('assets/images/sigmaticsoft-social.jpg') }}">
+    <meta property="og:url" content="@yield('meta_url', url()->current())">
+    <meta property="og:title" content="@yield('title', 'Sigmatic Soft | Business Systems Engineering Company')">
+    <meta property="og:description" content="@yield('meta_description', 'Sigmatic Soft helps growing businesses modernize legacy software, integrate disconnected business systems, and automate operations with practical AI.')">
+    <meta property="og:image" content="@yield('meta_image', asset('assets/images/sigmaticsoft-social.jpg'))">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sigmaticsoft.com/">
-    <meta property="twitter:title" content="SigmaticSoft | Premium Digital Solutions & Software Development">
-    <meta property="twitter:description" content="SigmaticSoft is a top-tier software company specializing in MVP development, custom web applications, mobile apps, and complete business digitization solutions.">
-    <meta property="twitter:image" content="{{ asset('assets/images/sigmaticsoft-social.jpg') }}">
+    <meta property="twitter:url" content="@yield('meta_url', url()->current())">
+    <meta property="twitter:title" content="@yield('title', 'Sigmatic Soft | Business Systems Engineering Company')">
+    <meta property="twitter:description" content="@yield('meta_description', 'Sigmatic Soft helps growing businesses modernize legacy software, integrate disconnected business systems, and automate operations with practical AI.')">
+    <meta property="twitter:image" content="@yield('meta_image', asset('assets/images/sigmaticsoft-social.jpg'))">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -56,17 +56,17 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "SigmaticSoft",
-      "image": "{{ asset('assets/images/logo/logo.png') }}",
+      "image": "{{ asset('assets/website/images/logo.png') }}",
       "@id": "https://sigmaticsoft.com/",
       "url": "https://sigmaticsoft.com/",
       "telephone": "",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "",
-        "addressLocality": "New York",
-        "addressRegion": "NY",
-        "postalCode": "",
-        "addressCountry": "US"
+        "streetAddress": "Dhanmondi",
+        "addressLocality": "Dhaka",
+        "addressRegion": "Dhaka Division",
+        "postalCode": "1209",
+        "addressCountry": "BD"
       }
     }
     </script>

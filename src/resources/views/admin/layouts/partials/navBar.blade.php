@@ -78,6 +78,10 @@
                     <img src="{{ asset('assets/admin/images/faces/face28.jpg') }}" alt="profile" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a href="{{ route('admin.dashboard') }}" class="dropdown-item">
+                        <i class="ti-layout-grid2 text-primary"></i>
+                        Business Portal
+                    </a>
                     <a class="dropdown-item">
                         <i class="ti-settings text-primary"></i>
                         Settings

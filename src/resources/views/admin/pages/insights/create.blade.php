@@ -107,7 +107,7 @@
 @section('script')
 
     <script>
-        const imageUpload = document.getElementById('image');
+        const imageUpload = document.getElementById('featured_image');
         imageUpload.onchange = evt => {
             const [file] = imageUpload.files
             if (file) {
@@ -115,14 +115,15 @@
                 imageOutput.src = URL.createObjectURL(file)
             }
         }
-
-
     </script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#editor').summernote();
+            $('#editor').summernote({
+                height: 300,
+                placeholder: 'Write description about insight...'
+            });
         });
     </script>
 @endsection

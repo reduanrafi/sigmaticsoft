@@ -1,135 +1,133 @@
 @extends('website.layouts.master')
 
-@section('extra-css')
-    <style>
-        .insight-card {
-            transition: all 0.3s ease;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            background: #fff;
-        }
-        .insight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            border-color: var(--primary-color, #0d6efd);
-        }
-        .insight-card .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            line-height: 1.4;
-            color: #212529;
-            transition: color 0.2s ease;
-        }
-        .insight-card:hover .card-title {
-            color: var(--primary-color, #0d6efd);
-        }
-        .sidebar-card {
-            border-radius: 10px;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .category-link {
-            transition: all 0.2s ease;
-            border-radius: 5px;
-            padding: 8px 12px;
-            display: block;
-        }
-        .category-link:hover {
-            background-color: var(--primary-light, #e7f1ff);
-            color: var(--primary-color, #0d6efd) !important;
-            transform: translateX(5px);
-        }
-        .page-header {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 60px 0;
-            margin-bottom: 40px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-    </style>
-@endsection
+@section('title', 'Business Systems Engineering Insights & Guides | Sigmatic Soft')
+@section('meta_description', 'Discover strategic B2B guides on legacy software modernization, e-commerce integrations, API middleware architectures, and practical AI operations.')
+@section('meta_keywords', 'software engineering blog, Laravel upgrades guide, system integration architecture, B2B AI automation steps')
 
 @section('content')
-    <!-- Header Section -->
-    <div class="page-header text-center">
-        <div class="container">
-            <h1 class="display-5 fw-bold mb-3">Our Latest Insights</h1>
-            <p class="lead text-muted mx-auto" style="max-width: 700px;">
-                Stay updated with the latest trends in software development, tech innovation, and business digitization strategies.
+    <!-- Header -->
+    <div class="py-5 bg-light text-center border-bottom text-start">
+        <div class="container py-4">
+            <span class="section-subtitle">Authority Library</span>
+            <h1 class="display-4 fw-black text-dark mb-2">Sigmatic Soft Insights</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 650px;">
+                Expert engineering blueprints, API integration guides, and operational automation strategies for growing businesses.
             </p>
         </div>
     </div>
 
-    <div class="container pb-5">
+    <!-- Main Content -->
+    <div class="container py-5">
         <div class="row g-5">
-            {{-- Main Content - Articles --}}
-            <div class="col-lg-8">
-                <div class="row row-cols-1 g-4">
+            <!-- Left Side - Insights Grid -->
+            <div class="col-lg-8 text-start">
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4 gap-3">
+                    <h3 class="fw-bold text-dark mb-0">
+                        @if(isset($categorySlug) && $categorySlug)
+                            Category: <span class="text-primary text-capitalize">{{ str_replace('-', ' ', $categorySlug) }}</span>
+                        @else
+                            All Strategic Guides
+                        @endif
+                    </h3>
+                    <span class="small text-muted fw-bold">{{ $insights->total() }} Articles Published</span>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 g-4">
                     @forelse ($insights as $insight)
                         <div class="col">
-                            <article class="insight-card p-4">
-                                <div class="mb-2 text-muted small">
-                                    <i class="fa-regular fa-calendar me-2"></i> {{ $insight->created_at ? $insight->created_at->format('M d, Y') : 'Recent' }}
+                            <div class="insight-grid-card">
+                                <div class="p-4 bg-light border-bottom text-center" style="height: 120px; display: flex; align-items: center; justify-content: center;">
+                                    @if(isset($insight->category) && $insight->category === 'Modernization')
+                                        <i class="fa-solid fa-server fa-3x text-primary-color opacity-75"></i>
+                                    @elseif(isset($insight->category) && $insight->category === 'Integration')
+                                        <i class="fa-solid fa-arrows-split-up-and-left fa-3x text-primary-color opacity-75"></i>
+                                    @elseif(isset($insight->category) && $insight->category === 'AI Automation')
+                                        <i class="fa-solid fa-brain fa-3x text-primary-color opacity-75"></i>
+                                    @elseif(isset($insight->category) && $insight->category === 'Business Systems')
+                                        <i class="fa-solid fa-folder-tree fa-3x text-primary-color opacity-75"></i>
+                                    @else
+                                        <i class="fa-solid fa-book-open fa-3x text-primary-color opacity-75"></i>
+                                    @endif
                                 </div>
-                                <a class="text-decoration-none" href="{{ route('insights.show', $insight->slug) }}">
-                                    <h2 class="card-title mb-3">
-                                        {{ \Illuminate\Support\Str::limit($insight->title, 80) }}
-                                    </h2>
-                                </a>
-                                <p class="text-secondary mb-4">
-                                    {{ \Illuminate\Support\Str::limit($insight->excerpt, 150) }}
-                                </p>
-                                <div>
-                                    <a href="{{ route('insights.show', $insight->slug) }}" class="btn btn-outline-primary btn-sm rounded-pill px-4 fw-bold">Read More</a>
+                                <div class="insight-grid-card-body">
+                                    <span class="insight-grid-tag">{{ $insight->category ?? 'General' }}</span>
+                                    <h4 class="insight-grid-title">
+                                        <a href="{{ route('insights.show', $insight->slug) }}">{{ $insight->title }}</a>
+                                    </h4>
+                                    <p class="insight-grid-excerpt">
+                                        {{ Str::limit($insight->excerpt ?? strip_tags($insight->content), 120) }}
+                                    </p>
+                                    <div class="insight-grid-meta">
+                                        <span><i class="fa-regular fa-clock me-1"></i> {{ max(2, ceil(str_word_count(strip_tags($insight->content)) / 180)) }} Min Read</span>
+                                        <span class="fw-bold">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
                                 </div>
-                            </article>
+                            </div>
                         </div>
                     @empty
                         <div class="col-12 py-5 text-center">
-                            <i class="fa-regular fa-newspaper fa-3x text-muted mb-3 opacity-50"></i>
-                            <h4 class="text-muted">No insights published yet.</h4>
-                            <p>Please check back later for exciting updates.</p>
+                            <i class="fa-regular fa-folder-open fa-3x text-muted mb-3 opacity-50"></i>
+                            <h4 class="text-muted">No insights published in this category yet.</h4>
+                            <p class="text-secondary small">Please select another category or check back later.</p>
                         </div>
                     @endforelse
                 </div>
-                
-                {{-- Pagination --}}
+
+                <!-- Pagination -->
                 <div class="mt-5 d-flex justify-content-center">
-                    {{ $insights->links('pagination::bootstrap-5') }}
+                    {{ $insights->appends(request()->query())->links('pagination::bootstrap-5') }}
                 </div>
             </div>
 
-            {{-- Sidebar --}}
-            <div class="col-lg-4">
+            <!-- Right Side - Sidebar -->
+            <div class="col-lg-4 text-start">
                 <div class="position-sticky" style="top: 100px;">
-                    <div class="card sidebar-card">
+                    <!-- Categories -->
+                    <div class="card sidebar-card mb-4 border border-light shadow-sm">
                         <div class="card-body p-4">
                             <h4 class="fw-bold mb-4 pb-2 border-bottom">Categories</h4>
                             <ul class="list-unstyled mb-0">
-                                @forelse($categories as $category)
-                                    <li class="mb-2">
-                                        <a class="text-decoration-none text-dark fw-medium category-link" href="{{ route('insights.index', ['category' => $category->slug ?? $category->name]) }}">
-                                            <i class="fa-solid fa-angle-right text-primary me-2"></i> 
+                                <li class="mb-1">
+                                    <a class="category-link text-decoration-none fw-semibold {{ !request()->query('category') ? 'bg-primary-light text-primary-color' : '' }}" href="{{ route('insights.index') }}">
+                                        <i class="fa-solid fa-border-all me-2 small"></i> All Resources
+                                    </a>
+                                </li>
+                                @foreach($categories as $category)
+                                    <li class="mb-1">
+                                        <a class="category-link text-decoration-none fw-semibold {{ request()->query('category') === $category->slug ? 'bg-primary-light text-primary-color' : '' }}" href="{{ route('insights.index', ['category' => $category->slug]) }}">
+                                            @if($category->slug === 'modernization')
+                                                <i class="fa-solid fa-server me-2 small"></i>
+                                            @elseif($category->slug === 'integration')
+                                                <i class="fa-solid fa-arrows-split-up-and-left me-2 small"></i>
+                                            @elseif($category->slug === 'ai-automation')
+                                                <i class="fa-solid fa-brain me-2 small"></i>
+                                            @elseif($category->slug === 'business-systems')
+                                                <i class="fa-solid fa-folder-tree me-2 small"></i>
+                                            @else
+                                                <i class="fa-solid fa-hashtag me-2 small"></i>
+                                            @endif
                                             <span class="text-capitalize">{{ $category->name }}</span>
                                         </a>
                                     </li>
-                                @empty
-                                    <li class="text-muted">No categories available.</li>
-                                @endforelse
+                                @endforeach
                             </ul>
                         </div>
                     </div>
 
-                    {{-- Subscribe / CTA Sidebar Widget --}}
-                    <div class="card sidebar-card mt-4 bg-primary text-white border-0">
-                        <div class="card-body p-4 text-center">
-                            <i class="fa-regular fa-envelope-open fa-2x mb-3"></i>
-                            <h4 class="fw-bold mb-3">Never Miss an Update</h4>
-                            <p class="small opacity-75 mb-4">Subscribe to our newsletter to get the latest insights delivered right to your inbox.</p>
-                            <form action="#" method="POST">
-                                <div class="input-group mb-2">
-                                    <input type="email" class="form-control form-control-sm rounded-start-pill border-0 px-3" placeholder="Your Email Address" required>
-                                    <button class="btn btn-light rounded-end-pill px-3 fw-bold text-primary" type="button">Join</button>
+                    <!-- Newsletter Widget -->
+                    <div class="card sidebar-card border-0 bg-dark-tech text-white p-4">
+                        <div class="card-body p-0 text-center">
+                            <i class="fa-solid fa-bell-concierge fa-3x mb-3 text-primary-color"></i>
+                            <h4 class="fw-bold mb-2 text-white">Subscribe to Insights</h4>
+                            <p class="small text-light opacity-75 mb-4">Get high-quality business systems engineering articles sent directly to your inbox.</p>
+                            <form action="{{ route('website.contact.submit') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="subject" value="Newsletter Subscription">
+                                <input type="hidden" name="name" value="Newsletter Subscriber">
+                                <input type="hidden" name="message" value="Subscribed to monthly engineering newsletter.">
+                                <div class="input-group">
+                                    <input type="email" name="email" class="form-control rounded-start border-0 px-3 py-2" placeholder="work@company.com" required style="font-size: 14px;">
+                                    <button class="btn btn-premium btn-premium-primary rounded-end py-2 px-3 fw-bold" type="submit">Join</button>
                                 </div>
                             </form>
                         </div>

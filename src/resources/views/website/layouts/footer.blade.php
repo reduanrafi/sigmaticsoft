@@ -1,79 +1,80 @@
-<footer class="bg-dark">
-    <div class="container">
-        <div class="row m-0">
-            <div class="col-md-6">
-                <img class="mt-3" width="100" src="{{ asset('assets/images/logo/logo.png') }}" alt=""><br>
-                <p class="text-white mt-4">Sigamticsoft is a software company that stands for creating digital solutions for small and mid level companies. Especially work for those companies who are thinking of digitizing their business. Also try to convert ideas into reality.
-                    If you are  willing to start a new company , have some ideas contact us ,
-                    sigmaticsoft will take care of your ideas.
-
+<footer class="footer-wrapper py-5 bg-dark-tech text-light">
+    <div class="container py-4">
+        <div class="row g-4">
+            <!-- Brand Column -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <a href="{{ route('website.index') }}" class="d-inline-block mb-3">
+                    <img width="90" src="{{ asset('assets/website/images/logo.png') }}" alt="Sigmatic Soft Logo">
+                </a>
+                <p class="mt-2 text-white fw-bold" style="font-family: var(--font-display); letter-spacing: -0.01em;">
+                    Sigmatic Soft &mdash; Business Systems Engineering
                 </p>
-                <div class="d-flex flex-row my-4">
-                    <a href="https://www.facebook.com/sigmaticsoft" target="_blank"
-                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
-                        <i class="fa-brands fa-facebook text-white fs-4"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/sigmaticsoft/" target="_blank"
-                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
-                        <i class="fa-brands fa-linkedin text-white fs-4"></i>
-                    </a>
-
-                    <a href="mailto:info@sigmaticsoft.com"
-                       class="rounded p-2 px-3 me-2 btn btn-outline-success d-flex justify-content-center align-items-center">
-                        <i class="fa-regular fa-envelope text-white fs-4"></i>
-                    </a>
-                </div>
-                <div>
-                    <p class="text-white">
-                    <i class="fa-solid fa-location-dot text-white pe-1 fs-5"></i> <span class="pe-1">Bajitpur,
-                        Kishorgonj,
-                        Dhaka-Bangladesh.</span>
-
+                <p class="small text-light opacity-75 mt-3" style="max-width: 320px;">
+                    Helping growing businesses modernize legacy applications, integrate disconnected systems, and automate operational workflows with AI.
                 </p>
-                <p class="text-white">
-                    <i class="fa-regular fa-envelope text-white pe-2 fs-5"></i><span class="pe-1">info@sigmaticsoft.com</span>
+                <p class="small mt-4">
+                    <strong class="text-white">Based in Bangladesh. Serving businesses globally.</strong>
                 </p>
+                <div class="d-flex gap-2 mt-4">
+                    <a href="https://www.facebook.com/sigmaticsoft" target="_blank" class="btn btn-outline-light btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/sigmaticsoft/" target="_blank" class="btn btn-outline-light btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:info@sigmaticsoft.com" class="btn btn-outline-light btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="mt-4 d-flex justify-content-center">
-                    <ul class="list-unstyled ">
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold"
-                                href="">Ecommerce
-                                Application</a></li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold"
-                                href="">Website</a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold" href="">ERP
-                                Software
-                            </a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold"
-                                href="">Learning </a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold"
-                                href="">Contact </a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold" href="">About
-                                Us </a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold"
-                                href="">Privacy Policy
-                            </a>
-                        </li>
-                        <li class="mt-3 "><a class="text-decoration-none text-white fs-6 fw-bold" href="">Terms
-                                and
-                                Conditions </a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 border-top border-white py-2">
-                <div class="d-flex flex-row justify-content-between">
-                    <p class="text-white pt-2">&copy; {{ now()->year }} Sigmaticsoft. All Rights Reserved</p>
-                    <p class="text-white pt-2">Last Update: {{ now()->format('F Y') }}</p>
-                </div>
 
+            <!-- Services Column -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 text-start">
+                <h5>Services</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('services.legacy-modernization') }}">Legacy Modernization</a></li>
+                    <li><a href="{{ route('services.system-integration') }}">System Integration</a></li>
+                    <li><a href="{{ route('services.ai-business-automation') }}">AI Automation</a></li>
+                    <li><a href="{{ route('services.managed-engineering') }}">Managed Engineering</a></li>
+                    <li><a href="{{ route('services.software-audit') }}" class="text-primary-color fw-semibold">Software Audit</a></li>
+                </ul>
             </div>
+
+            <!-- Industries Column -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 text-start">
+                <h5>Industries</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('industries.retail-distribution') }}">Retail & Distribution</a></li>
+                    <li><a href="{{ route('industries.ecommerce') }}">E-commerce</a></li>
+                    <li><a href="{{ route('industries.professional-services') }}">Professional Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Column -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 text-start">
+                <h5>Resources</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('case-studies.index') }}">Case Studies</a></li>
+                    <li><a href="{{ route('insights.index') }}">Insights / Blog</a></li>
+                    <li><a href="{{ route('insights.index') }}">Engineering Guides</a></li>
+                </ul>
+            </div>
+
+            <!-- Company Column -->
+            <div class="col-lg-2 col-md-6 text-start">
+                <h5>Company</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('website.about') }}">About Us</a></li>
+                    <li><a href="{{ route('website.contact') }}">Contact</a></li>
+                    <li><a href="{{ route('website.privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ route('website.terms') }}">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom mt-5 pt-4 d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <p class="mb-0">&copy; {{ now()->year }} Sigmatic Soft. All Rights Reserved.</p>
+            <p class="mb-0 text-light opacity-50">Last Refactored: {{ now()->format('F Y') }}</p>
         </div>
     </div>
     @include('website.layouts.footerscript')
