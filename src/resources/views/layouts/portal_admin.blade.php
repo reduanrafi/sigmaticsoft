@@ -213,6 +213,18 @@
                             <span class="menu-title">Activity Log</span>
                         </a>
                     </li>
+                    <li class="nav-item {{ request()->is('admin/radar-leads*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.radar-leads') }}">
+                            <i class="mdi mdi-radar menu-icon"></i>
+                            <span class="menu-title">Lead Radar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {{ request()->is('admin/trend-intelligence*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.trend-intelligence.index') }}">
+                            <i class="mdi mdi-chart-timeline-variant menu-icon"></i>
+                            <span class="menu-title">Trend Intelligence</span>
+                        </a>
+                    </li>
                     <!-- Website Management (Ecommerce & Public Features) -->
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-website" aria-expanded="false" aria-controls="ui-website">

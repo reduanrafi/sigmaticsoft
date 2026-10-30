@@ -46,3 +46,17 @@ Route::post('/order-save', [\App\Http\Controllers\API\PtOrderController::class, 
 Route::prefix('categories')->group(function () {
     Route::get('/', [\App\Http\Controllers\API\PtCategoryController::class, 'index']);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Problem Radar Leads Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('radar-leads')->group(function () {
+    Route::get('/', [\App\Http\Controllers\RadarLeadController::class, 'index']);
+    Route::get('/stats', [\App\Http\Controllers\RadarLeadController::class, 'stats']);
+    Route::patch('/{id}/status', [\App\Http\Controllers\RadarLeadController::class, 'updateStatus']);
+    Route::patch('/{id}/notes', [\App\Http\Controllers\RadarLeadController::class, 'updateNotes']);
+    Route::delete('/{id}', [\App\Http\Controllers\RadarLeadController::class, 'destroy']);
+});
+

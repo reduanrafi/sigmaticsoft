@@ -12,6 +12,8 @@ use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\InsightController;
 use App\Http\Controllers\Website\StaticPageController;
 use App\Http\Controllers\Website\WorldCupController;
+use App\Http\Controllers\Website\TrendOutlookController;
+use App\Http\Controllers\AdminPortal\TrendIntelligenceAdminController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,10 @@ Route::get('/insights', [InsightController::class, 'index'])->name('insights.ind
 Route::get('/insights/{slug}', [InsightController::class, 'show'])->name('insights.show');
 Route::redirect('/insites', '/insights', 301);
 Route::redirect('/insites/{slug}', '/insights/{slug}', 301);
+
+// Global Software Industry Trend Intelligence Public Pages
+Route::get('/software-industry-outlook', [TrendOutlookController::class, 'index'])->name('trend-intelligence.outlook');
+Route::get('/software-industry-outlook/{slug}', [TrendOutlookController::class, 'category'])->name('trend-intelligence.category');
 
 // Services
 Route::prefix('services')->name('services.')->group(function () {
@@ -130,6 +136,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     
     // Activity Log
     Route::get('activity-log', [App\Http\Controllers\AdminPortal\ActivityLogController::class, 'index'])->name('admin.activity-log');
+
+    // Lead Radar
+    Route::get('radar-leads', [\App\Http\Controllers\RadarLeadController::class, 'adminView'])->name('admin.radar-leads');
+
+    // Global Software Industry Trend Intelligence Admin Workflow
+    Route::prefix('trend-intelligence')->name('admin.trend-intelligence.')->group(function () {
+        Route::get('/', [TrendIntelligenceAdminController::class, 'index'])->name('index');
+        Route::post('/sources', [TrendIntelligenceAdminController::class, 'storeSource'])->name('sources.store');
+        Route::put('/sources/{source}', [TrendIntelligenceAdminController::class, 'updateSource'])->name('sources.update');
+        Route::put('/categories/{category}', [TrendIntelligenceAdminController::class, 'updateCategory'])->name('categories.update');
+        Route::post('/collect', [TrendIntelligenceAdminController::class, 'collect'])->name('collect');
+        Route::post('/aggregate', [TrendIntelligenceAdminController::class, 'aggregate'])->name('aggregate');
+        Route::post('/forecasts/generate', [TrendIntelligenceAdminController::class, 'generateForecast'])->name('forecasts.generate');
+        Route::put('/forecasts/{forecast}', [TrendIntelligenceAdminController::class, 'updateForecast'])->name('forecasts.update');
+        Route::post('/forecasts/{forecast}/approve', [TrendIntelligenceAdminController::class, 'approveForecast'])->name('forecasts.approve');
+        Route::post('/forecasts/{forecast}/publish', [TrendIntelligenceAdminController::class, 'publishForecast'])->name('forecasts.publish');
+        Route::post('/forecasts/{forecast}/unpublish', [TrendIntelligenceAdminController::class, 'unpublishForecast'])->name('forecasts.unpublish');
+        Route::post('/forecasts/{forecast}/archive', [TrendIntelligenceAdminController::class, 'archiveForecast'])->name('forecasts.archive');
+        Route::post('/forecasts/{forecast}/evaluate', [TrendIntelligenceAdminController::class, 'evaluateForecast'])->name('forecasts.evaluate');
+    });
 });
 
 // Client Portal

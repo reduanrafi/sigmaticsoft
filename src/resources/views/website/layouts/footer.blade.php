@@ -56,6 +56,7 @@
                 <ul class="footer-links">
                     <li><a href="{{ route('case-studies.index') }}">Case Studies</a></li>
                     <li><a href="{{ route('insights.index') }}">Insights / Blog</a></li>
+                    <li><a href="{{ route('trend-intelligence.outlook') }}">Software Industry Outlook</a></li>
                     <li><a href="{{ route('insights.index') }}">Engineering Guides</a></li>
                 </ul>
             </div>

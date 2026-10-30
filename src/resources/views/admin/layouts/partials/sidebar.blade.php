@@ -61,5 +61,11 @@
                 <span class="menu-title">Orders</span>
             </a>
         </li>
+        <li class="nav-item {{request()->is('admin/radar-leads*')? 'active':'' }}">
+            <a class="nav-link" href="{{ route('admin.radar-leads') }}">
+                <i class="mdi mdi-radar menu-icon"></i>
+                <span class="menu-title">Lead Radar</span>
+            </a>
+        </li>
     </ul>
 </nav>

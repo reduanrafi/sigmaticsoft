@@ -15,7 +15,30 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Global Software Industry Trend Intelligence scheduled tasks
+        $schedule->command('trends:collect')
+            ->everySixHours()
+            ->withoutOverlapping(30);
+
+        $schedule->command('trends:aggregate')
+            ->dailyAt('01:15')
+            ->withoutOverlapping(30);
+
+        $schedule->command('trends:forecast --horizon=3')
+            ->weeklyOn(1, '02:00')
+            ->withoutOverlapping(30);
+
+        $schedule->command('trends:forecast --horizon=6')
+            ->weeklyOn(1, '02:15')
+            ->withoutOverlapping(30);
+
+        $schedule->command('trends:forecast --horizon=12')
+            ->weeklyOn(1, '02:30')
+            ->withoutOverlapping(30);
+
+        $schedule->command('trends:evaluate')
+            ->dailyAt('03:00')
+            ->withoutOverlapping(30);
     }
 
     /**

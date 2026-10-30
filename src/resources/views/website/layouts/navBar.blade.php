@@ -50,6 +50,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->is('software-industry-outlook*') ? 'active' : '' }}" href="{{ route('trend-intelligence.outlook') }}">Industry Outlook</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ route('website.about') }}">About</a>
                 </li>
 
