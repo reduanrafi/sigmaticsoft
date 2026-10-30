@@ -8,6 +8,7 @@ use App\Models\TrendForecast;
 use App\Models\TrendObservation;
 use App\Services\TrendIntelligence\UrlSafetyValidator;
 use Illuminate\Http\Request;
+use Throwable;
 
 class TrendOutlookController extends Controller
 {
@@ -21,8 +22,6 @@ class TrendOutlookController extends Controller
      */
     public function index(Request $request)
     {
-        TrendCategory::ensureDefaultsExist();
-
         $selectedHorizon = $request->query('horizon');
         if ($selectedHorizon !== null && !in_array((int) $selectedHorizon, [3, 6, 12], true)) {
             $selectedHorizon = null;
@@ -30,43 +29,58 @@ class TrendOutlookController extends Controller
             $selectedHorizon = $selectedHorizon !== null ? (int) $selectedHorizon : null;
         }
 
-        $categories = TrendCategory::where('is_active', true)
-            ->with(['weeklyMetrics', 'latestWeeklyMetric'])
-            ->orderBy('display_order')
-            ->get();
-
-        // Only published forecasts are ever retrieved for public pages
-        $publishedQuery = TrendForecast::published()
-            ->with(['category', 'publicEvaluations'])
-            ->orderByDesc('published_at')
-            ->orderByDesc('id');
-
-        if ($selectedHorizon !== null) {
-            $publishedQuery->where('horizon_months', $selectedHorizon);
-        }
-
-        $publishedForecasts = $publishedQuery->get();
-
-        // Sanitize supporting evidence links
-        foreach ($publishedForecasts as $forecast) {
-            $forecast->supporting_evidence = $this->sanitizeEvidenceList($forecast->supporting_evidence ?? []);
-        }
-
-        // Determine which categories have enough useful evidence & published forecasts to warrant a standalone page
         $qualifyingCategorySlugs = [];
-        foreach ($categories as $cat) {
-            if ($this->categoryHasSufficientPublicEvidence($cat)) {
-                $qualifyingCategorySlugs[$cat->slug] = true;
-            }
-        }
 
-        // Previous predictions & evaluations log (published or previously published then archived)
-        $previousPredictions = TrendForecast::whereIn('status', ['published', 'archived'])
-            ->whereNotNull('published_at')
-            ->with(['category', 'publicEvaluations'])
-            ->orderByDesc('published_at')
-            ->limit(20)
-            ->get();
+        try {
+            TrendCategory::ensureDefaultsExist();
+
+            $categories = TrendCategory::where('is_active', true)
+                ->with(['weeklyMetrics', 'latestWeeklyMetric'])
+                ->orderBy('display_order')
+                ->get();
+
+            // Only published forecasts are ever retrieved for public pages
+            $publishedQuery = TrendForecast::published()
+                ->with(['category', 'publicEvaluations'])
+                ->orderByDesc('published_at')
+                ->orderByDesc('id');
+
+            if ($selectedHorizon !== null) {
+                $publishedQuery->where('horizon_months', $selectedHorizon);
+            }
+
+            $publishedForecasts = $publishedQuery->get();
+
+            // Sanitize supporting evidence links
+            foreach ($publishedForecasts as $forecast) {
+                $forecast->supporting_evidence = $this->sanitizeEvidenceList($forecast->supporting_evidence ?? []);
+            }
+
+            // Determine which categories have enough useful evidence & published forecasts to warrant a standalone page
+            foreach ($categories as $cat) {
+                if ($this->categoryHasSufficientPublicEvidence($cat)) {
+                    $qualifyingCategorySlugs[$cat->slug] = true;
+                }
+            }
+
+            // Previous predictions & evaluations log (published or previously published then archived)
+            $previousPredictions = TrendForecast::whereIn('status', ['published', 'archived'])
+                ->whereNotNull('published_at')
+                ->with(['category', 'publicEvaluations'])
+                ->orderByDesc('published_at')
+                ->limit(20)
+                ->get();
+        } catch (Throwable $e) {
+            // Fallback if DB is not yet migrated or temporarily offline so public page still renders cleanly
+            $categories = collect(TrendCategory::defaultCategories())->map(function (array $cat) {
+                $obj = new TrendCategory($cat);
+                $obj->setRelation('weeklyMetrics', collect());
+                $obj->setRelation('latestWeeklyMetric', null);
+                return $obj;
+            });
+            $publishedForecasts = collect();
+            $previousPredictions = collect();
+        }
 
         return view('website.pages.software_industry_outlook', compact(
             'categories',
@@ -83,6 +97,8 @@ class TrendOutlookController extends Controller
      */
     public function category(string $slug)
     {
+        TrendCategory::ensureDefaultsExist();
+
         $category = TrendCategory::where('slug', $slug)
             ->where('is_active', true)
             ->with(['weeklyMetrics', 'latestWeeklyMetric'])
@@ -180,4 +196,3 @@ class TrendOutlookController extends Controller
         return $clean;
     }
 }
-

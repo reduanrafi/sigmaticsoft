@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
+use Throwable;
 
 class TrendCategory extends Model
 {
@@ -153,16 +156,26 @@ class TrendCategory extends Model
     }
 
     /**
-     * Ensure the 6 default categories exist in the database.
+     * Ensure the tables and 6 default categories exist in the database.
      */
     public static function ensureDefaultsExist(): void
     {
-        foreach (self::defaultCategories() as $cat) {
-            self::firstOrCreate(
-                ['slug' => $cat['slug']],
-                $cat
-            );
+        try {
+            if (!Schema::hasTable('trend_categories')) {
+                Artisan::call('migrate', [
+                    '--path' => 'database/migrations/2026_10_30_000001_create_trend_intelligence_tables.php',
+                    '--force' => true,
+                ]);
+            }
+
+            foreach (self::defaultCategories() as $cat) {
+                self::firstOrCreate(
+                    ['slug' => $cat['slug']],
+                    $cat
+                );
+            }
+        } catch (Throwable $e) {
+            // Handled gracefully by callers if DB is offline
         }
     }
 }
-

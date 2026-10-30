@@ -33,6 +33,11 @@ Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');
     $exitCode = Artisan::call('route:clear');
     $exitCode = Artisan::call('view:clear');
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+    } catch (\Throwable $e) {
+        // Ignore migration errors during cache clear if DB is unreachable
+    }
     return redirect()->back();
 });
 Route::get('sitemap.xml', function () {
@@ -55,6 +60,8 @@ Route::redirect('/insites/{slug}', '/insights/{slug}', 301);
 // Global Software Industry Trend Intelligence Public Pages
 Route::get('/software-industry-outlook', [TrendOutlookController::class, 'index'])->name('trend-intelligence.outlook');
 Route::get('/software-industry-outlook/{slug}', [TrendOutlookController::class, 'category'])->name('trend-intelligence.category');
+Route::redirect('/trend-intelligence', '/software-industry-outlook', 301);
+Route::redirect('/industry-outlook', '/software-industry-outlook', 301);
 
 // Services
 Route::prefix('services')->name('services.')->group(function () {
