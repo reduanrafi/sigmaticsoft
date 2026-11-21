@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy via FTP
+    name: Build & Deploy via SSH (Password)
     runs-on: ubuntu-latest
 
     steps:
@@ -24,24 +24,40 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction --working-dir=src
 
-      - name: Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR || './public_html/' }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            .idea/**
-            .vscode/**
-            src/.env
-            src/.env.*
-            src/storage/**
-            src/bootstrap/cache/*.php
-            src/node_modules/**
-            assets/images/**
-            src.zip
-            README.md
+      - name: Install sshpass and rsync
+        run: sudo apt-get update && sudo apt-get install -y sshpass rsync
+
+      - name: Deploy to cPanel via rsync (SSH password)
+        env:
+          SSHPASS: ${{ secrets.CPANEL_PASSWORD }}
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT || '22' }}
+          CPANEL_PATH: ${{ secrets.CPANEL_PATH || 'public_html/' }}
+        run: |
+          sshpass -e rsync -avz --delete \
+            -e "ssh -p ${CPANEL_PORT} -o StrictHostKeyChecking=no" \
+            --exclude='.git*' \
+            --exclude='.github/' \
+            --exclude='.idea/' \
+            --exclude='.vscode/' \
+            --exclude='src/.env' \
+            --exclude='src/.env.*' \
+            --exclude='src/storage/' \
+            --exclude='src/bootstrap/cache/*.php' \
+            --exclude='src/node_modules/' \
+            --exclude='assets/images/' \
+            --exclude='src.zip' \
+            --exclude='README.md' \
+            ./ "${CPANEL_USER}@${CPANEL_HOST}:${CPANEL_PATH}"
+
+      - name: Clear Laravel caches on server
+        env:
+          SSHPASS: ${{ secrets.CPANEL_PASSWORD }}
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_PORT: ${{ secrets.CPANEL_PORT || '22' }}
+          CPANEL_PATH: ${{ secrets.CPANEL_PATH || 'public_html/' }}
+        run: |
+          sshpass -e ssh -p "${CPANEL_PORT}" -o StrictHostKeyChecking=no "${CPANEL_USER}@${CPANEL_HOST}" \
+            "cd ${CPANEL_PATH}src && php artisan optimize:clear"
